@@ -1,0 +1,20 @@
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\bin\Debug\net6.0-windows\Streamup Pluginstall V2a.exe
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\bin\Debug\net6.0-windows\Streamup Pluginstall V2a.deps.json
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\bin\Debug\net6.0-windows\Streamup Pluginstall V2a.runtimeconfig.json
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\bin\Debug\net6.0-windows\Streamup Pluginstall V2a.dll
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\bin\Debug\net6.0-windows\Streamup Pluginstall V2a.pdb
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.csproj.GenerateResource.cache
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.AssemblyInfoInputs.cache
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.AssemblyInfo.cs
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.csproj.CoreCompileInputs.cache
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.dll
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\refint\Streamup Pluginstall V2a.dll
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.pdb
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.genruntimeconfig.cache
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\ref\Streamup Pluginstall V2a.dll
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup_Pluginstall_V2a.Properties.Resources.resources
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup_Pluginstall_V2a.MainWindow.resources
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.csproj.AssemblyReference.cache
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Silverlink\source\repos\Streamup Pluginstall V2a\Streamup Pluginstall V2a\obj\Debug\net6.0-windows\Streamup Pluginstall V2a.csproj.CopyComplete

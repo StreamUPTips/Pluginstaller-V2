@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3XaVKXVTnV+E79O4CBgmyrTvLemB0bH0eC0a8KEmvJUYyb0uvsRVWcYvpj91Y30meSAhmQzlNMfWiFMoYHnqOQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Silverlink\\source\\repos\\Streamup Pluginstall V2a\\Streamup Pluginstall V2a\\Streamup Pluginstall V2a.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Silverlink\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
