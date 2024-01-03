@@ -3,16 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamup Pluginstall V2a", "Streamup Pluginstall V2a\Streamup Pluginstall V2a.csproj", "{935DF609-D787-4846-B680-FFD3765F709E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Streamup Pluginstall V2", "Streamup Pluginstall V2a\Streamup Pluginstall V2.csproj", "{935DF609-D787-4846-B680-FFD3765F709E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		hvg|Any CPU = hvg|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{935DF609-D787-4846-B680-FFD3765F709E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{935DF609-D787-4846-B680-FFD3765F709E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935DF609-D787-4846-B680-FFD3765F709E}.hvg|Any CPU.ActiveCfg = hvg|Any CPU
+		{935DF609-D787-4846-B680-FFD3765F709E}.hvg|Any CPU.Build.0 = hvg|Any CPU
 		{935DF609-D787-4846-B680-FFD3765F709E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{935DF609-D787-4846-B680-FFD3765F709E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

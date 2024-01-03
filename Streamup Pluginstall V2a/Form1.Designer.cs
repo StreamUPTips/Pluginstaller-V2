@@ -1,4 +1,4 @@
-﻿namespace Streamup_Pluginstall_V2a {
+﻿namespace Streamup_Pluginstall_V2 {
     partial class MainWindow {
         /// <summary>
         ///  Required designer variable.
@@ -28,15 +28,21 @@
             label1 = new Label();
             groupBoxPlugins = new GroupBox();
             checkedListBoxPlugins = new CheckedListBox();
-            radioButtonRequired = new RadioButton();
+            radioButtonSuggested = new RadioButton();
             radioButtonRecommended = new RadioButton();
-            radioButtonRequiredRecommended = new RadioButton();
+            radioButtonRecommendedSuggested = new RadioButton();
             radioButtonAll = new RadioButton();
             groupBoxSaveLocation = new GroupBox();
             buttonSaveFolder = new Button();
             textBoxSaveLocation = new TextBox();
-            button1 = new Button();
+            buttonDownload = new Button();
             radioButtonCustom = new RadioButton();
+            labelStatus = new Label();
+            buttonExpand = new Button();
+            textBoxLogging = new TextBox();
+            checkBoxUnzip = new CheckBox();
+            checkBoxOpenUrlsOnly = new CheckBox();
+            buttonOpenFolder = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPLogo).BeginInit();
             groupBoxPlugins.SuspendLayout();
             groupBoxSaveLocation.SuspendLayout();
@@ -95,21 +101,22 @@
             checkedListBoxPlugins.TabIndex = 0;
             checkedListBoxPlugins.ThreeDCheckBoxes = true;
             // 
-            // radioButtonRequired
+            // radioButtonSuggested
             // 
-            radioButtonRequired.AutoSize = true;
-            radioButtonRequired.Location = new Point(12, 78);
-            radioButtonRequired.Name = "radioButtonRequired";
-            radioButtonRequired.Size = new Size(114, 19);
-            radioButtonRequired.TabIndex = 4;
-            radioButtonRequired.TabStop = true;
-            radioButtonRequired.Text = "Required Plugins";
-            radioButtonRequired.UseVisualStyleBackColor = true;
+            radioButtonSuggested.AutoSize = true;
+            radioButtonSuggested.Location = new Point(12, 103);
+            radioButtonSuggested.Name = "radioButtonSuggested";
+            radioButtonSuggested.Size = new Size(122, 19);
+            radioButtonSuggested.TabIndex = 4;
+            radioButtonSuggested.Text = "Suggested Plugins";
+            radioButtonSuggested.UseVisualStyleBackColor = true;
+            radioButtonSuggested.CheckedChanged += radioButtonSuggested_CheckedChanged;
             // 
             // radioButtonRecommended
             // 
             radioButtonRecommended.AutoSize = true;
-            radioButtonRecommended.Location = new Point(12, 103);
+            radioButtonRecommended.Checked = true;
+            radioButtonRecommended.Location = new Point(12, 78);
             radioButtonRecommended.Name = "radioButtonRecommended";
             radioButtonRecommended.Size = new Size(148, 19);
             radioButtonRecommended.TabIndex = 5;
@@ -118,16 +125,16 @@
             radioButtonRecommended.UseVisualStyleBackColor = true;
             radioButtonRecommended.CheckedChanged += radioButtonRecommended_CheckedChanged;
             // 
-            // radioButtonRequiredRecommended
+            // radioButtonRecommendedSuggested
             // 
-            radioButtonRequiredRecommended.AutoSize = true;
-            radioButtonRequiredRecommended.Location = new Point(190, 78);
-            radioButtonRequiredRecommended.Name = "radioButtonRequiredRecommended";
-            radioButtonRequiredRecommended.Size = new Size(221, 19);
-            radioButtonRequiredRecommended.TabIndex = 6;
-            radioButtonRequiredRecommended.TabStop = true;
-            radioButtonRequiredRecommended.Text = "Required and Recommended Plugins";
-            radioButtonRequiredRecommended.UseVisualStyleBackColor = true;
+            radioButtonRecommendedSuggested.AutoSize = true;
+            radioButtonRecommendedSuggested.Location = new Point(190, 78);
+            radioButtonRecommendedSuggested.Name = "radioButtonRecommendedSuggested";
+            radioButtonRecommendedSuggested.Size = new Size(229, 19);
+            radioButtonRecommendedSuggested.TabIndex = 6;
+            radioButtonRecommendedSuggested.Text = "Recommended and Suggested Plugins";
+            radioButtonRecommendedSuggested.UseVisualStyleBackColor = true;
+            radioButtonRecommendedSuggested.CheckedChanged += radioButtonRecommendedSuggested_CheckedChanged;
             // 
             // radioButtonAll
             // 
@@ -136,7 +143,6 @@
             radioButtonAll.Name = "radioButtonAll";
             radioButtonAll.Size = new Size(81, 19);
             radioButtonAll.TabIndex = 7;
-            radioButtonAll.TabStop = true;
             radioButtonAll.Text = "All Plugins";
             radioButtonAll.UseVisualStyleBackColor = true;
             radioButtonAll.CheckedChanged += radioButtonAll_CheckedChanged;
@@ -160,6 +166,7 @@
             buttonSaveFolder.Size = new Size(41, 33);
             buttonSaveFolder.TabIndex = 1;
             buttonSaveFolder.UseVisualStyleBackColor = true;
+            buttonSaveFolder.Click += buttonSaveFolder_Click;
             // 
             // textBoxSaveLocation
             // 
@@ -170,17 +177,17 @@
             textBoxSaveLocation.Size = new Size(358, 23);
             textBoxSaveLocation.TabIndex = 0;
             // 
-            // button1
+            // buttonDownload
             // 
-            button1.Image = Properties.Resources.Download;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(285, 496);
-            button1.Name = "button1";
-            button1.Size = new Size(144, 45);
-            button1.TabIndex = 9;
-            button1.Text = "Download Plugins";
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = true;
+            buttonDownload.Image = Properties.Resources.Download;
+            buttonDownload.Location = new Point(691, 496);
+            buttonDownload.Name = "buttonDownload";
+            buttonDownload.Size = new Size(144, 45);
+            buttonDownload.TabIndex = 9;
+            buttonDownload.Text = "Download Plugins";
+            buttonDownload.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonDownload.UseVisualStyleBackColor = true;
+            buttonDownload.Click += buttonDownload_Click;
             // 
             // radioButtonCustom
             // 
@@ -189,23 +196,94 @@
             radioButtonCustom.Name = "radioButtonCustom";
             radioButtonCustom.Size = new Size(67, 19);
             radioButtonCustom.TabIndex = 10;
-            radioButtonCustom.TabStop = true;
             radioButtonCustom.Text = "Custom";
             radioButtonCustom.UseVisualStyleBackColor = true;
             radioButtonCustom.CheckedChanged += radioButtonCustom_CheckedChanged;
+            // 
+            // labelStatus
+            // 
+            labelStatus.AutoSize = true;
+            labelStatus.Location = new Point(12, 511);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Size = new Size(39, 15);
+            labelStatus.TabIndex = 11;
+            labelStatus.Text = "Status";
+            labelStatus.Visible = false;
+            // 
+            // buttonExpand
+            // 
+            buttonExpand.Location = new Point(380, 12);
+            buttonExpand.Name = "buttonExpand";
+            buttonExpand.Size = new Size(55, 23);
+            buttonExpand.TabIndex = 12;
+            buttonExpand.Text = ">>";
+            buttonExpand.UseVisualStyleBackColor = true;
+            buttonExpand.Visible = false;
+            buttonExpand.Click += buttonExpand_Click;
+            // 
+            // textBoxLogging
+            // 
+            textBoxLogging.Location = new Point(455, 128);
+            textBoxLogging.Multiline = true;
+            textBoxLogging.Name = "textBoxLogging";
+            textBoxLogging.ReadOnly = true;
+            textBoxLogging.ScrollBars = ScrollBars.Vertical;
+            textBoxLogging.Size = new Size(380, 362);
+            textBoxLogging.TabIndex = 13;
+            // 
+            // checkBoxUnzip
+            // 
+            checkBoxUnzip.AutoSize = true;
+            checkBoxUnzip.Checked = true;
+            checkBoxUnzip.CheckState = CheckState.Checked;
+            checkBoxUnzip.Location = new Point(455, 12);
+            checkBoxUnzip.Name = "checkBoxUnzip";
+            checkBoxUnzip.Size = new Size(228, 19);
+            checkBoxUnzip.TabIndex = 14;
+            checkBoxUnzip.Text = "Automatically UnZIP downloaded files";
+            checkBoxUnzip.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxOpenUrlsOnly
+            // 
+            checkBoxOpenUrlsOnly.AutoSize = true;
+            checkBoxOpenUrlsOnly.Location = new Point(455, 31);
+            checkBoxOpenUrlsOnly.Name = "checkBoxOpenUrlsOnly";
+            checkBoxOpenUrlsOnly.Size = new Size(110, 19);
+            checkBoxOpenUrlsOnly.TabIndex = 15;
+            checkBoxOpenUrlsOnly.Text = "Only open URLs";
+            checkBoxOpenUrlsOnly.UseVisualStyleBackColor = true;
+            checkBoxOpenUrlsOnly.CheckedChanged += checkBoxOpenUrlsOnly_CheckedChanged;
+            // 
+            // buttonOpenFolder
+            // 
+            buttonOpenFolder.Image = Properties.Resources.OpenFolder;
+            buttonOpenFolder.Location = new Point(539, 496);
+            buttonOpenFolder.Name = "buttonOpenFolder";
+            buttonOpenFolder.Size = new Size(144, 45);
+            buttonOpenFolder.TabIndex = 9;
+            buttonOpenFolder.Text = "Open download folder";
+            buttonOpenFolder.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonOpenFolder.UseVisualStyleBackColor = true;
+            buttonOpenFolder.Click += buttonOpenFolder_Click;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(447, 552);
+            ClientSize = new Size(847, 552);
+            Controls.Add(checkBoxOpenUrlsOnly);
+            Controls.Add(checkBoxUnzip);
+            Controls.Add(textBoxLogging);
+            Controls.Add(buttonExpand);
+            Controls.Add(labelStatus);
             Controls.Add(radioButtonCustom);
-            Controls.Add(button1);
+            Controls.Add(buttonOpenFolder);
+            Controls.Add(buttonDownload);
             Controls.Add(groupBoxSaveLocation);
             Controls.Add(radioButtonAll);
-            Controls.Add(radioButtonRequiredRecommended);
+            Controls.Add(radioButtonRecommendedSuggested);
             Controls.Add(radioButtonRecommended);
-            Controls.Add(radioButtonRequired);
+            Controls.Add(radioButtonSuggested);
             Controls.Add(groupBoxPlugins);
             Controls.Add(label1);
             Controls.Add(labelStreamUP);
@@ -214,6 +292,7 @@
             MaximizeBox = false;
             Name = "MainWindow";
             SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "StreamUP Pluginstaller V2";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPLogo).EndInit();
@@ -230,15 +309,21 @@
         private Label labelStreamUP;
         private Label label1;
         private GroupBox groupBoxPlugins;
-        private RadioButton radioButtonRequired;
+        private RadioButton radioButtonSuggested;
         private RadioButton radioButtonRecommended;
-        private RadioButton radioButtonRequiredRecommended;
+        private RadioButton radioButtonRecommendedSuggested;
         private RadioButton radioButtonAll;
         private CheckedListBox checkedListBoxPlugins;
         private GroupBox groupBoxSaveLocation;
         private TextBox textBoxSaveLocation;
         private Button buttonSaveFolder;
-        private Button button1;
+        private Button buttonDownload;
         private RadioButton radioButtonCustom;
+        private Label labelStatus;
+        private Button buttonExpand;
+        private TextBox textBoxLogging;
+        private CheckBox checkBoxUnzip;
+        private CheckBox checkBoxOpenUrlsOnly;
+        private Button buttonOpenFolder;
     }
 }

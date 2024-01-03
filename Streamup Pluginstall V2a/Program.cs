@@ -1,4 +1,4 @@
-namespace Streamup_Pluginstall_V2a {
+namespace Streamup_Pluginstall_V2 {
     internal static class Program {
         /// <summary>
         ///  The main entry point for the application.
