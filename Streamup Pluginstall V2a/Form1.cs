@@ -20,16 +20,28 @@ namespace Streamup_Pluginstall_V2 {
         Dictionary<int, Plugin> allPlugins = new Dictionary<int, Plugin>();
         JObject parsedJson;
         string buttonDownloadDefaultText;
-
+        string outOfDateOBSPlugins = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "StreamUP-OutdatedPluginsList.txt");
 
         public MainWindow() {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
+        private void LoadSettings() {
+            checkBoxUnzip.Checked = Convert.ToBoolean(Properties.Settings.Default["unzipFiles"]);
+
+            _ = (!string.IsNullOrEmpty(Properties.Settings.Default["saveLocation"].ToString())) ? textBoxSaveLocation.Text = Properties.Settings.Default["saveLocation"].ToString() : textBoxSaveLocation.Text = AppDomain.CurrentDomain.BaseDirectory;
+        }
+
+        private void ClearSettings() {
+            Properties.Settings.Default["saveLocation"] = null;
+        }
+
+        private async void Form1_Load(object sender, EventArgs e) {
+
+            LoadSettings();
+
             buttonDownloadDefaultText = buttonDownload.Text;
             var client = new HttpClient();
-            textBoxSaveLocation.Text = AppDomain.CurrentDomain.BaseDirectory;
 
             SetLoggingText("Checking if Download Directory exists", false, true);
             var directoryPath = Path.Combine(textBoxSaveLocation.Text, "Downloads");
@@ -40,16 +52,16 @@ namespace Streamup_Pluginstall_V2 {
             }
 
             SetLoggingText("Trying to connect to StreamUP API", false, true);
-            var result = client.GetAsync($"https://api.streamup.tips/plugins").Result;
+            var result = await client.GetAsync($"https://api.streamup.tips/plugins");
             if (!result.IsSuccessStatusCode) {
                 MessageBox.Show("Could not retrieve plugin list", "Error retrieving Data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             SetLoggingText("Connected! Parsing Data", false, true);
-            var content = result.Content.ReadAsStringAsync().Result;
+            var content = await result.Content.ReadAsStringAsync();
             parsedJson = JObject.Parse(content);
 
-            JArray plugins = (JArray)parsedJson["plugins"];
+            JArray? plugins = parsedJson["plugins"] as JArray;
 
             int i = 0;
             int iRecommended = 0;
@@ -88,7 +100,7 @@ namespace Streamup_Pluginstall_V2 {
             foreach (var item in allPlugins) {
                 checkedListBoxPlugins.Items.Add(item.Value.Name);
             }
-            SetLoggingText($"Selecting default recommended plugins", false, true);
+            SetLoggingText($"Selecting recommended plugins", false, true);
             int itemIndex = 0;
             foreach (var item in recommendedPlugins) {
                 itemIndex = checkedListBoxPlugins.Items.Cast<string>().ToList().IndexOf(item.Value.Name);
@@ -97,7 +109,11 @@ namespace Streamup_Pluginstall_V2 {
                 }
             }
 
+            if (File.Exists(outOfDateOBSPlugins)) {
+                radioButtonOutdated.Visible = true;
+            }
         }
+
         private void radioButtonAll_CheckedChanged(object sender, EventArgs e) {
             if (radioButtonAll.Checked) {
                 for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
@@ -108,7 +124,6 @@ namespace Streamup_Pluginstall_V2 {
 
         private void radioButtonRecommended_CheckedChanged(object sender, EventArgs e) {
             if (radioButtonRecommended.Checked) {
-
                 for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
                     checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
                 }
@@ -124,7 +139,6 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private void radioButtonSuggested_CheckedChanged(object sender, EventArgs e) {
-
             for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
                 checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
             }
@@ -139,7 +153,6 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private void radioButtonRecommendedSuggested_CheckedChanged(object sender, EventArgs e) {
-
             for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
                 checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
             }
@@ -166,6 +179,20 @@ namespace Streamup_Pluginstall_V2 {
             }
         }
 
+        private void radioButtonOutdated_CheckedChanged(object sender, EventArgs e) {
+            for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
+                checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
+            }
+            var outOfDateOBSPluginsList = File.ReadAllLines(outOfDateOBSPlugins);
+            int itemIndex = 0;
+            foreach (var item in outOfDateOBSPluginsList) {
+                itemIndex = checkedListBoxPlugins.Items.Cast<string>().ToList().IndexOf(item);
+                if (itemIndex > -1) {
+                    checkedListBoxPlugins.SetItemCheckState(itemIndex, CheckState.Checked);
+                }
+            }
+        }
+
         Plugin SetPluginData(JToken pluginObject) {
 
             Plugin plugin = new Plugin();
@@ -185,7 +212,8 @@ namespace Streamup_Pluginstall_V2 {
                 return;
             }
 
-            textBoxSaveLocation.Text = $"{folderDialogResult.SelectedPath.ToString()}";
+            textBoxSaveLocation.Text = folderDialogResult.SelectedPath.ToString();
+            Properties.Settings.Default["saveLocation"] = folderDialogResult.SelectedPath.ToString();
 
         }
 
@@ -278,6 +306,8 @@ namespace Streamup_Pluginstall_V2 {
 
             if (checkBoxUnzip.Checked) {
                 UnzipFiles(directoryPath);
+            } else {
+                buttonUnZIP.Enabled = true;
             }
 
             SetLoggingText("Done!", true, true);
@@ -304,14 +334,7 @@ Thank you for using the Pluginstaller by StreamUP";
         }
 
         private void buttonExpand_Click(object sender, EventArgs e) {
-            if (buttonExpand.Text == ">>") {
-                this.Size = new Size(863, 591);
-                buttonExpand.Text = "<<";
-            } else {
-                this.Size = new Size(463, 591);
-                buttonExpand.Text = ">>";
-            }
-
+            ClearSettings();
         }
 
         private void SetLoggingText(string text, bool label = false, bool textbox = false) {
@@ -430,12 +453,25 @@ Thank you for using the Pluginstaller by StreamUP";
                 SetLoggingText(other.Message, false, true);
             }
         }
+
+        private void checkBoxUnzip_CheckedChanged(object sender, EventArgs e) {
+            Properties.Settings.Default["unzipFiles"] = checkBoxUnzip.Checked;
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) {
+            Properties.Settings.Default.Save();
+        }
+
+        private void buttonUnZIP_Click(object sender, EventArgs e) {
+            var directoryPath = Path.Combine(textBoxSaveLocation.Text, "Downloads");
+            UnzipFiles(directoryPath);
+        }
     }
 
     class Plugin {
-        public string Name { get; set; }
-        public string Uri { get; set; }
-        public string version { get; set; }
+        public string? Name { get; set; }
+        public string? Uri { get; set; }
+        public string? version { get; set; }
     }
 }
 

@@ -43,6 +43,8 @@
             checkBoxUnzip = new CheckBox();
             checkBoxOpenUrlsOnly = new CheckBox();
             buttonOpenFolder = new Button();
+            radioButtonOutdated = new RadioButton();
+            buttonUnZIP = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPLogo).BeginInit();
             groupBoxPlugins.SuspendLayout();
             groupBoxSaveLocation.SuspendLayout();
@@ -83,6 +85,7 @@
             // groupBoxPlugins
             // 
             groupBoxPlugins.Controls.Add(checkedListBoxPlugins);
+            groupBoxPlugins.ForeColor = Color.White;
             groupBoxPlugins.Location = new Point(12, 128);
             groupBoxPlugins.Name = "groupBoxPlugins";
             groupBoxPlugins.Size = new Size(423, 284);
@@ -92,11 +95,16 @@
             // 
             // checkedListBoxPlugins
             // 
+            checkedListBoxPlugins.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            checkedListBoxPlugins.BackColor = Color.FromArgb(42, 44, 65);
+            checkedListBoxPlugins.BorderStyle = BorderStyle.FixedSingle;
+            checkedListBoxPlugins.CheckOnClick = true;
+            checkedListBoxPlugins.ForeColor = Color.White;
             checkedListBoxPlugins.FormattingEnabled = true;
-            checkedListBoxPlugins.Location = new Point(6, 22);
+            checkedListBoxPlugins.Location = new Point(9, 19);
             checkedListBoxPlugins.Name = "checkedListBoxPlugins";
             checkedListBoxPlugins.SelectionMode = SelectionMode.None;
-            checkedListBoxPlugins.Size = new Size(411, 256);
+            checkedListBoxPlugins.Size = new Size(411, 254);
             checkedListBoxPlugins.Sorted = true;
             checkedListBoxPlugins.TabIndex = 0;
             checkedListBoxPlugins.ThreeDCheckBoxes = true;
@@ -128,7 +136,7 @@
             // radioButtonRecommendedSuggested
             // 
             radioButtonRecommendedSuggested.AutoSize = true;
-            radioButtonRecommendedSuggested.Location = new Point(190, 78);
+            radioButtonRecommendedSuggested.Location = new Point(200, 78);
             radioButtonRecommendedSuggested.Name = "radioButtonRecommendedSuggested";
             radioButtonRecommendedSuggested.Size = new Size(229, 19);
             radioButtonRecommendedSuggested.TabIndex = 6;
@@ -139,7 +147,7 @@
             // radioButtonAll
             // 
             radioButtonAll.AutoSize = true;
-            radioButtonAll.Location = new Point(190, 103);
+            radioButtonAll.Location = new Point(200, 103);
             radioButtonAll.Name = "radioButtonAll";
             radioButtonAll.Size = new Size(81, 19);
             radioButtonAll.TabIndex = 7;
@@ -151,6 +159,7 @@
             // 
             groupBoxSaveLocation.Controls.Add(buttonSaveFolder);
             groupBoxSaveLocation.Controls.Add(textBoxSaveLocation);
+            groupBoxSaveLocation.ForeColor = Color.White;
             groupBoxSaveLocation.Location = new Point(12, 418);
             groupBoxSaveLocation.Name = "groupBoxSaveLocation";
             groupBoxSaveLocation.Size = new Size(417, 72);
@@ -160,17 +169,22 @@
             // 
             // buttonSaveFolder
             // 
+            buttonSaveFolder.BackColor = Color.FromArgb(66, 67, 86);
+            buttonSaveFolder.FlatAppearance.BorderSize = 0;
+            buttonSaveFolder.FlatStyle = FlatStyle.Flat;
             buttonSaveFolder.Image = Properties.Resources.Folder;
             buttonSaveFolder.Location = new Point(370, 22);
             buttonSaveFolder.Name = "buttonSaveFolder";
             buttonSaveFolder.Size = new Size(41, 33);
             buttonSaveFolder.TabIndex = 1;
-            buttonSaveFolder.UseVisualStyleBackColor = true;
+            buttonSaveFolder.UseVisualStyleBackColor = false;
             buttonSaveFolder.Click += buttonSaveFolder_Click;
             // 
             // textBoxSaveLocation
             // 
-            textBoxSaveLocation.BackColor = SystemColors.ControlLightLight;
+            textBoxSaveLocation.BackColor = Color.FromArgb(42, 44, 65);
+            textBoxSaveLocation.BorderStyle = BorderStyle.FixedSingle;
+            textBoxSaveLocation.ForeColor = Color.White;
             textBoxSaveLocation.Location = new Point(6, 28);
             textBoxSaveLocation.Name = "textBoxSaveLocation";
             textBoxSaveLocation.ReadOnly = true;
@@ -179,20 +193,23 @@
             // 
             // buttonDownload
             // 
+            buttonDownload.BackColor = Color.FromArgb(66, 67, 86);
+            buttonDownload.FlatAppearance.BorderSize = 0;
+            buttonDownload.FlatStyle = FlatStyle.Flat;
             buttonDownload.Image = Properties.Resources.Download;
-            buttonDownload.Location = new Point(691, 496);
+            buttonDownload.Location = new Point(691, 498);
             buttonDownload.Name = "buttonDownload";
             buttonDownload.Size = new Size(144, 45);
             buttonDownload.TabIndex = 9;
             buttonDownload.Text = "Download Plugins";
             buttonDownload.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonDownload.UseVisualStyleBackColor = true;
+            buttonDownload.UseVisualStyleBackColor = false;
             buttonDownload.Click += buttonDownload_Click;
             // 
             // radioButtonCustom
             // 
             radioButtonCustom.AutoSize = true;
-            radioButtonCustom.Location = new Point(344, 103);
+            radioButtonCustom.Location = new Point(368, 103);
             radioButtonCustom.Name = "radioButtonCustom";
             radioButtonCustom.Size = new Size(67, 19);
             radioButtonCustom.TabIndex = 10;
@@ -212,17 +229,23 @@
             // 
             // buttonExpand
             // 
-            buttonExpand.Location = new Point(380, 12);
+            buttonExpand.BackColor = Color.FromArgb(66, 67, 86);
+            buttonExpand.FlatAppearance.BorderSize = 0;
+            buttonExpand.FlatStyle = FlatStyle.Flat;
+            buttonExpand.Location = new Point(715, 62);
             buttonExpand.Name = "buttonExpand";
-            buttonExpand.Size = new Size(55, 23);
+            buttonExpand.Size = new Size(120, 51);
             buttonExpand.TabIndex = 12;
-            buttonExpand.Text = ">>";
-            buttonExpand.UseVisualStyleBackColor = true;
+            buttonExpand.Text = "Test Button";
+            buttonExpand.UseVisualStyleBackColor = false;
             buttonExpand.Visible = false;
             buttonExpand.Click += buttonExpand_Click;
             // 
             // textBoxLogging
             // 
+            textBoxLogging.BackColor = Color.FromArgb(42, 44, 65);
+            textBoxLogging.BorderStyle = BorderStyle.FixedSingle;
+            textBoxLogging.ForeColor = Color.White;
             textBoxLogging.Location = new Point(455, 128);
             textBoxLogging.Multiline = true;
             textBoxLogging.Name = "textBoxLogging";
@@ -242,6 +265,7 @@
             checkBoxUnzip.TabIndex = 14;
             checkBoxUnzip.Text = "Automatically UnZIP downloaded files";
             checkBoxUnzip.UseVisualStyleBackColor = true;
+            checkBoxUnzip.CheckedChanged += checkBoxUnzip_CheckedChanged;
             // 
             // checkBoxOpenUrlsOnly
             // 
@@ -256,21 +280,56 @@
             // 
             // buttonOpenFolder
             // 
+            buttonOpenFolder.BackColor = Color.FromArgb(66, 67, 86);
+            buttonOpenFolder.FlatAppearance.BorderSize = 0;
+            buttonOpenFolder.FlatStyle = FlatStyle.Flat;
+            buttonOpenFolder.ForeColor = Color.White;
             buttonOpenFolder.Image = Properties.Resources.OpenFolder;
-            buttonOpenFolder.Location = new Point(539, 496);
+            buttonOpenFolder.Location = new Point(539, 498);
             buttonOpenFolder.Name = "buttonOpenFolder";
             buttonOpenFolder.Size = new Size(144, 45);
             buttonOpenFolder.TabIndex = 9;
             buttonOpenFolder.Text = "Open download folder";
             buttonOpenFolder.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonOpenFolder.UseVisualStyleBackColor = true;
+            buttonOpenFolder.UseVisualStyleBackColor = false;
             buttonOpenFolder.Click += buttonOpenFolder_Click;
+            // 
+            // radioButtonOutdated
+            // 
+            radioButtonOutdated.AutoSize = true;
+            radioButtonOutdated.ForeColor = Color.White;
+            radioButtonOutdated.Location = new Point(287, 103);
+            radioButtonOutdated.Name = "radioButtonOutdated";
+            radioButtonOutdated.Size = new Size(75, 19);
+            radioButtonOutdated.TabIndex = 16;
+            radioButtonOutdated.TabStop = true;
+            radioButtonOutdated.Text = "Outdated";
+            radioButtonOutdated.UseVisualStyleBackColor = false;
+            radioButtonOutdated.Visible = false;
+            radioButtonOutdated.CheckedChanged += radioButtonOutdated_CheckedChanged;
+            // 
+            // buttonUnZIP
+            // 
+            buttonUnZIP.BackColor = Color.FromArgb(66, 67, 86);
+            buttonUnZIP.Enabled = false;
+            buttonUnZIP.FlatAppearance.BorderSize = 0;
+            buttonUnZIP.FlatStyle = FlatStyle.Flat;
+            buttonUnZIP.Location = new Point(715, 9);
+            buttonUnZIP.Name = "buttonUnZIP";
+            buttonUnZIP.Size = new Size(120, 23);
+            buttonUnZIP.TabIndex = 17;
+            buttonUnZIP.Text = "Unzip Current Files";
+            buttonUnZIP.UseVisualStyleBackColor = false;
+            buttonUnZIP.Click += buttonUnZIP_Click;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(20, 23, 45);
             ClientSize = new Size(847, 552);
+            Controls.Add(buttonUnZIP);
+            Controls.Add(radioButtonOutdated);
             Controls.Add(checkBoxOpenUrlsOnly);
             Controls.Add(checkBoxUnzip);
             Controls.Add(textBoxLogging);
@@ -288,12 +347,14 @@
             Controls.Add(label1);
             Controls.Add(labelStreamUP);
             Controls.Add(pictureBoxStreamUPLogo);
+            ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "MainWindow";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StreamUP Pluginstaller V2";
+            FormClosing += MainWindow_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPLogo).EndInit();
             groupBoxPlugins.ResumeLayout(false);
@@ -325,5 +386,7 @@
         private CheckBox checkBoxUnzip;
         private CheckBox checkBoxOpenUrlsOnly;
         private Button buttonOpenFolder;
+        private RadioButton radioButtonOutdated;
+        private Button buttonUnZIP;
     }
 }
