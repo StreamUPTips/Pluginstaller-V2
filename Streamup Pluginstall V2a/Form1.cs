@@ -15,8 +15,8 @@ namespace Streamup_Pluginstall_V2 {
     public partial class MainWindow : Form {
 
         Dictionary<int, Plugin> recommendedPlugins = new Dictionary<int, Plugin>();
-        Dictionary<int, Plugin> suggestedPlugins = new Dictionary<int, Plugin>();
-        Dictionary<int, Plugin> recommendedAndSuggestedPlugins = new Dictionary<int, Plugin>();
+        Dictionary<int, Plugin> requiredPlugins = new Dictionary<int, Plugin>();
+        Dictionary<int, Plugin> recommendedAndRequiredPlugins = new Dictionary<int, Plugin>();
         Dictionary<int, Plugin> allPlugins = new Dictionary<int, Plugin>();
         JObject parsedJson;
         string buttonDownloadDefaultText;
@@ -65,8 +65,8 @@ namespace Streamup_Pluginstall_V2 {
 
             int i = 0;
             int iRecommended = 0;
-            int iSuggested = 0;
-            int iRecommendedAndSuggested = 0;
+            int iRequired = 0;
+            int iRecommendedAndRequired = 0;
 
             foreach (var plugin in plugins) {
 
@@ -76,21 +76,21 @@ namespace Streamup_Pluginstall_V2 {
                 allPlugins.Add(i, SetPluginData(plugin));
 
                 bool isRecommended = Convert.ToBoolean(plugin["recommended"].ToString());
-                bool isSuggested = Convert.ToBoolean(plugin["suggested"].ToString());
+                bool isRequired = Convert.ToBoolean(plugin["required"].ToString());
 
                 if (isRecommended) {
                     recommendedPlugins.Add(iRecommended, SetPluginData(plugin));
                     iRecommended++;
                 }
 
-                if (isSuggested) {
-                    suggestedPlugins.Add(iSuggested, SetPluginData(plugin));
-                    iSuggested++;
+                if (isRequired) {
+                    requiredPlugins.Add(iRequired, SetPluginData(plugin));
+                    iRequired++;
                 }
 
-                if (isRecommended || isSuggested) {
-                    recommendedAndSuggestedPlugins.Add(iRecommendedAndSuggested, SetPluginData(plugin));
-                    iRecommendedAndSuggested++;
+                if (isRecommended || isRequired) {
+                    recommendedAndRequiredPlugins.Add(iRecommendedAndRequired, SetPluginData(plugin));
+                    iRecommendedAndRequired++;
                 }
                 i++;
             }
@@ -102,7 +102,7 @@ namespace Streamup_Pluginstall_V2 {
             }
             SetLoggingText($"Selecting recommended plugins", false, true);
             int itemIndex = 0;
-            foreach (var item in recommendedPlugins) {
+            foreach (var item in requiredPlugins) {
                 itemIndex = checkedListBoxPlugins.Items.Cast<string>().ToList().IndexOf(item.Value.Name);
                 if (itemIndex > -1) {
                     checkedListBoxPlugins.SetItemCheckState(itemIndex, CheckState.Checked);
@@ -123,28 +123,12 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private void radioButtonRecommended_CheckedChanged(object sender, EventArgs e) {
-            if (radioButtonRecommended.Checked) {
-                for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
-                    checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
-                }
-
-                int itemIndex = 0;
-                foreach (var item in recommendedPlugins) {
-                    itemIndex = checkedListBoxPlugins.Items.Cast<string>().ToList().IndexOf(item.Value.Name);
-                    if (itemIndex > -1) {
-                        checkedListBoxPlugins.SetItemCheckState(itemIndex, CheckState.Checked);
-                    }
-                }
-            }
-        }
-
-        private void radioButtonSuggested_CheckedChanged(object sender, EventArgs e) {
             for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
                 checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
             }
 
             int itemIndex = 0;
-            foreach (var item in suggestedPlugins) {
+            foreach (var item in recommendedPlugins) {
                 itemIndex = checkedListBoxPlugins.Items.Cast<string>().ToList().IndexOf(item.Value.Name);
                 if (itemIndex > -1) {
                     checkedListBoxPlugins.SetItemCheckState(itemIndex, CheckState.Checked);
@@ -152,13 +136,27 @@ namespace Streamup_Pluginstall_V2 {
             }
         }
 
-        private void radioButtonRecommendedSuggested_CheckedChanged(object sender, EventArgs e) {
+        private void radioButtonRequired_CheckedChanged(object sender, EventArgs e) {
             for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
                 checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
             }
 
             int itemIndex = 0;
-            foreach (var item in recommendedAndSuggestedPlugins) {
+            foreach (var item in requiredPlugins) {
+                itemIndex = checkedListBoxPlugins.Items.Cast<string>().ToList().IndexOf(item.Value.Name);
+                if (itemIndex > -1) {
+                    checkedListBoxPlugins.SetItemCheckState(itemIndex, CheckState.Checked);
+                }
+            }
+        }
+
+        private void radioButtonRequiredRecommended_CheckedChanged(object sender, EventArgs e) {
+            for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
+                checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
+            }
+
+            int itemIndex = 0;
+            foreach (var item in recommendedAndRequiredPlugins) {
                 itemIndex = checkedListBoxPlugins.Items.Cast<string>().ToList().IndexOf(item.Value.Name);
                 if (itemIndex > -1) {
                     checkedListBoxPlugins.SetItemCheckState(itemIndex, CheckState.Checked);

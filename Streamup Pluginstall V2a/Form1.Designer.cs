@@ -28,9 +28,9 @@
             label1 = new Label();
             groupBoxPlugins = new GroupBox();
             checkedListBoxPlugins = new CheckedListBox();
-            radioButtonSuggested = new RadioButton();
             radioButtonRecommended = new RadioButton();
-            radioButtonRecommendedSuggested = new RadioButton();
+            radioButtonRequired = new RadioButton();
+            radioButtonRequiredAndRecommended = new RadioButton();
             radioButtonAll = new RadioButton();
             groupBoxSaveLocation = new GroupBox();
             buttonSaveFolder = new Button();
@@ -109,40 +109,40 @@
             checkedListBoxPlugins.TabIndex = 0;
             checkedListBoxPlugins.ThreeDCheckBoxes = true;
             // 
-            // radioButtonSuggested
-            // 
-            radioButtonSuggested.AutoSize = true;
-            radioButtonSuggested.Location = new Point(12, 103);
-            radioButtonSuggested.Name = "radioButtonSuggested";
-            radioButtonSuggested.Size = new Size(122, 19);
-            radioButtonSuggested.TabIndex = 4;
-            radioButtonSuggested.Text = "Suggested Plugins";
-            radioButtonSuggested.UseVisualStyleBackColor = true;
-            radioButtonSuggested.CheckedChanged += radioButtonSuggested_CheckedChanged;
-            // 
             // radioButtonRecommended
             // 
             radioButtonRecommended.AutoSize = true;
-            radioButtonRecommended.Checked = true;
-            radioButtonRecommended.Location = new Point(12, 78);
+            radioButtonRecommended.Location = new Point(12, 103);
             radioButtonRecommended.Name = "radioButtonRecommended";
             radioButtonRecommended.Size = new Size(148, 19);
-            radioButtonRecommended.TabIndex = 5;
-            radioButtonRecommended.TabStop = true;
+            radioButtonRecommended.TabIndex = 4;
             radioButtonRecommended.Text = "Recommended Plugins";
             radioButtonRecommended.UseVisualStyleBackColor = true;
             radioButtonRecommended.CheckedChanged += radioButtonRecommended_CheckedChanged;
             // 
-            // radioButtonRecommendedSuggested
+            // radioButtonRequired
             // 
-            radioButtonRecommendedSuggested.AutoSize = true;
-            radioButtonRecommendedSuggested.Location = new Point(200, 78);
-            radioButtonRecommendedSuggested.Name = "radioButtonRecommendedSuggested";
-            radioButtonRecommendedSuggested.Size = new Size(229, 19);
-            radioButtonRecommendedSuggested.TabIndex = 6;
-            radioButtonRecommendedSuggested.Text = "Recommended and Suggested Plugins";
-            radioButtonRecommendedSuggested.UseVisualStyleBackColor = true;
-            radioButtonRecommendedSuggested.CheckedChanged += radioButtonRecommendedSuggested_CheckedChanged;
+            radioButtonRequired.AutoSize = true;
+            radioButtonRequired.Checked = true;
+            radioButtonRequired.Location = new Point(12, 78);
+            radioButtonRequired.Name = "radioButtonRequired";
+            radioButtonRequired.Size = new Size(114, 19);
+            radioButtonRequired.TabIndex = 5;
+            radioButtonRequired.TabStop = true;
+            radioButtonRequired.Text = "Required Plugins";
+            radioButtonRequired.UseVisualStyleBackColor = true;
+            radioButtonRequired.CheckedChanged += radioButtonRequired_CheckedChanged;
+            // 
+            // radioButtonRequiredAndRecommended
+            // 
+            radioButtonRequiredAndRecommended.AutoSize = true;
+            radioButtonRequiredAndRecommended.Location = new Point(200, 78);
+            radioButtonRequiredAndRecommended.Name = "radioButtonRequiredAndRecommended";
+            radioButtonRequiredAndRecommended.Size = new Size(221, 19);
+            radioButtonRequiredAndRecommended.TabIndex = 6;
+            radioButtonRequiredAndRecommended.Text = "Required and Recommended Plugins";
+            radioButtonRequiredAndRecommended.UseVisualStyleBackColor = true;
+            radioButtonRequiredAndRecommended.CheckedChanged += radioButtonRequiredRecommended_CheckedChanged;
             // 
             // radioButtonAll
             // 
@@ -302,7 +302,6 @@
             radioButtonOutdated.Name = "radioButtonOutdated";
             radioButtonOutdated.Size = new Size(75, 19);
             radioButtonOutdated.TabIndex = 16;
-            radioButtonOutdated.TabStop = true;
             radioButtonOutdated.Text = "Outdated";
             radioButtonOutdated.UseVisualStyleBackColor = false;
             radioButtonOutdated.Visible = false;
@@ -340,9 +339,9 @@
             Controls.Add(buttonDownload);
             Controls.Add(groupBoxSaveLocation);
             Controls.Add(radioButtonAll);
-            Controls.Add(radioButtonRecommendedSuggested);
+            Controls.Add(radioButtonRequiredAndRecommended);
+            Controls.Add(radioButtonRequired);
             Controls.Add(radioButtonRecommended);
-            Controls.Add(radioButtonSuggested);
             Controls.Add(groupBoxPlugins);
             Controls.Add(label1);
             Controls.Add(labelStreamUP);
@@ -370,9 +369,9 @@
         private Label labelStreamUP;
         private Label label1;
         private GroupBox groupBoxPlugins;
-        private RadioButton radioButtonSuggested;
         private RadioButton radioButtonRecommended;
-        private RadioButton radioButtonRecommendedSuggested;
+        private RadioButton radioButtonRequired;
+        private RadioButton radioButtonRequiredAndRecommended;
         private RadioButton radioButtonAll;
         private CheckedListBox checkedListBoxPlugins;
         private GroupBox groupBoxSaveLocation;
