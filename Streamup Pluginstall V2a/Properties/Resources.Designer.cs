@@ -63,6 +63,16 @@ namespace Streamup_Pluginstall_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AndiGasmRight {
+            get {
+                object obj = ResourceManager.GetObject("AndiGasmRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Download {
             get {
                 object obj = ResourceManager.GetObject("Download", resourceCulture);
@@ -86,6 +96,16 @@ namespace Streamup_Pluginstall_V2.Properties {
         internal static System.Drawing.Bitmap OpenFolder {
             get {
                 object obj = ResourceManager.GetObject("OpenFolder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StreamUP_PluginstallerV2 {
+            get {
+                object obj = ResourceManager.GetObject("StreamUP-PluginstallerV2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

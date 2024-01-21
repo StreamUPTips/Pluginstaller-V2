@@ -1,3 +1,8 @@
+using System.Drawing.Text;
+using System.Reflection;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
+
 namespace Streamup_Pluginstall_V2 {
     internal static class Program {
         /// <summary>
@@ -9,6 +14,7 @@ namespace Streamup_Pluginstall_V2 {
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainWindow());
+            //Application.Run(new CloseOBSMessageBox());
         }
     }
 }
