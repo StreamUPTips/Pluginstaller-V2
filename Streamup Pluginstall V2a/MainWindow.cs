@@ -5,6 +5,7 @@ using System.IO.Compression;
 using System.Security.Principal;
 using HttpClientProgress;
 using System.Net;
+using System.Drawing.Text;
 
 namespace Streamup_Pluginstall_V2 {
     public partial class MainWindow : Form {
@@ -75,6 +76,13 @@ namespace Streamup_Pluginstall_V2 {
             labelVersion.Text = currentVersion;
 
             buttonDownloadDefaultText = buttonDownload.Text;
+
+            FileSystemWatcher outDatedPluginList = new FileSystemWatcher();
+            outDatedPluginList.Path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            outDatedPluginList.Filter = "StreamUP-OutdatedPluginsList.txt";
+            outDatedPluginList.Created += PluginListCheck;
+            outDatedPluginList.Deleted += PluginListCheck;
+            outDatedPluginList.EnableRaisingEvents = true;
 
             int maxRetries = 5;
             int currentRetry = 0;
@@ -176,8 +184,10 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private void radioButtonOutdated_CheckedChanged(object sender, EventArgs e) {
-            var outOfDateOBSPluginsList = File.ReadAllLines(outOfDateOBSPlugins);
-            SetCheckedPlugins(outOfDateOBSPluginsList);
+            if (radioButtonOutdated.Checked) {
+                var outOfDateOBSPluginsList = File.ReadAllLines(outOfDateOBSPlugins);
+                SetCheckedPlugins(outOfDateOBSPluginsList);
+            }            
         }
 
         Plugin SetPluginData(JToken pluginObject) {
@@ -728,6 +738,19 @@ If you click No you can select a different location where you can download the O
 
         static double ConvertToMegaBytes (long size) {
             return Math.Ceiling(((double)size) / (1024 * 1024) * 100) / 100;
+        }
+
+        private void PluginListCheck(object sender, FileSystemEventArgs e) {
+            if (e.ChangeType == WatcherChangeTypes.Created) {
+                Invoke(new Action(() => {
+                    radioButtonOutdated.Visible = true;
+                }));
+            } else if (e.ChangeType == WatcherChangeTypes.Deleted) {
+                Invoke(new Action(() => {
+                    radioButtonOutdated.Visible = false;
+                    radioButtonRequired.Select();
+                }));
+            }
         }
 
     }
