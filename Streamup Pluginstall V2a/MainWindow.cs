@@ -4,8 +4,6 @@ using System.Net.Http.Headers;
 using System.IO.Compression;
 using System.Security.Principal;
 using HttpClientProgress;
-using System.Net;
-using System.Drawing.Text;
 
 namespace Streamup_Pluginstall_V2 {
     public partial class MainWindow : Form {
@@ -57,14 +55,22 @@ namespace Streamup_Pluginstall_V2 {
         private async void CheckForUpdates() {
 
             int.TryParse(currentVersion.Replace(".", ""), out int currentVersionNumber);
-
-            using HttpClient client = new HttpClient();
-            var result = await client.GetAsync("https://gist.githubusercontent.com/itsSilverlink/960e49255a3aebbd63c44f55d5fcf9eb/raw/pluginstaller.txt");
-            var onlineVersion = await result.Content.ReadAsStringAsync();
-            int.TryParse(onlineVersion.Replace(".", ""), out int onlineVersionNumbers);
-
-            if (onlineVersionNumbers > currentVersionNumber) {
-                labelVersion.Text = $"NEW VERSION AVAILABLE! {onlineVersion} - {currentVersion}";
+            await Task.Delay(5000);
+            labelVersion.Text = $"Checking for updates - {currentVersion}";
+            try {
+                using HttpClient client = new HttpClient();
+                var result = await client.GetAsync("https://gist.githubusercontent.com/itsSilverlink/960e49255a3aebbd63c44f55d5fcf9eb/raw/pluginstaller.txt");
+                var onlineVersion = await result.Content.ReadAsStringAsync();
+                int.TryParse(onlineVersion.Replace(".", ""), out int onlineVersionNumbers);
+                if (onlineVersionNumbers > currentVersionNumber) {
+                    labelVersion.Text = $"NEW VERSION AVAILABLE! {onlineVersion} - {currentVersion}";
+                } else {
+                    labelVersion.Text = $"No updates found - {currentVersion}";
+                    await Task.Delay(5000);
+                    labelVersion.Text = currentVersion;
+                }
+            } catch (Exception) {
+                labelVersion.Text = $"Could not check for updates - {currentVersion}";
             }
         }
 
