@@ -1,26 +1,10 @@
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.ComponentModel;
-using System.Net.Mime;
-using System.IO;
 using System.Net.Http.Headers;
-using static System.Net.Mime.MediaTypeNames;
 using System.IO.Compression;
-using System.Diagnostics.CodeAnalysis;
-using System.Security.Policy;
-using System.Text.Json;
-using System.Text;
-using System.Net.Http.Json;
 using System.Security.Principal;
-using System.DirectoryServices;
-using System.Net.Http;
 using HttpClientProgress;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+using System.Net;
 
 namespace Streamup_Pluginstall_V2 {
     public partial class MainWindow : Form {
@@ -83,6 +67,7 @@ namespace Streamup_Pluginstall_V2 {
             }
         }
 
+
         private async void MainWindow_Load(object sender, EventArgs e) {
             CheckForUpdates();
             LoadSettings();
@@ -90,27 +75,34 @@ namespace Streamup_Pluginstall_V2 {
             labelVersion.Text = currentVersion;
 
             buttonDownloadDefaultText = buttonDownload.Text;
-            var client = new HttpClient();
 
-            AddTextToLog("Trying to connect to StreamUP API");
-            var result = await client.GetAsync($"https://api.streamup.tips/plugins");
+            int maxRetries = 5;
+            int currentRetry = 0;
+            string pluginList = "";
 
-            try {
-
-            } catch (Exception) {
-
-                throw;
+            while (currentRetry < maxRetries) {
+                try {
+                    AddTextToLog($"Trying to connect to StreamUP API (Attempt {currentRetry + 1} of {maxRetries})");
+                    using HttpClient client = new HttpClient();
+                    HttpResponseMessage response = await client.GetAsync(@"https://api.streamup.tips/plugins");
+                    response.EnsureSuccessStatusCode();
+                    pluginList = await response.Content.ReadAsStringAsync();
+                    break;
+                } catch (HttpRequestException error) {
+                    AddTextToLog(error.Message);
+                } catch (Exception error) {
+                    AddTextToLog(error.Message);
+                }
+                currentRetry++;
+                await Task.Delay(2000);
             }
 
-            if (!result.IsSuccessStatusCode) {
-                MessageBox.Show("Could not retrieve plugin list", "Error retrieving Data", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+            if (currentRetry == maxRetries) {
+                MessageBox.Show("Cannot connect to StreamUP API, Make sure you are connected to the internet", "Uh oh", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Environment.Exit(1);
             }
-
-            AddTextToLog("Connected! Parsing Data");
-            var content = await result.Content.ReadAsStringAsync();
-
-            parsedJson = JObject.Parse(content);
+            
+            parsedJson = JObject.Parse(pluginList);
 
             JArray? plugins = parsedJson["plugins"] as JArray;
 
