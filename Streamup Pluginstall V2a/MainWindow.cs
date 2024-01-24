@@ -244,6 +244,7 @@ namespace Streamup_Pluginstall_V2 {
 
                 if (extractToOBSFolder == DialogResult.No) {
                     buttonSaveFolder_Click(sender, e);
+                    checkBoxExtract.Enabled = true;
                 }
             } else {
                 checkBoxExtract.Enabled = true;
@@ -400,7 +401,7 @@ namespace Streamup_Pluginstall_V2 {
 
             // Checking if there are files remaining and after that copying them to the AppFolder\Remaining Files
             if (Directory.GetFiles(tempFolder).Length > 0) {
-                AddTextToLog(@"Remaining files found, copying these to the AppFolder\Remaining Files\r\nThese files need to be installed manually");
+                AddTextToLog("Remaining files found, copying these to the AppFolder\\Remaining Files\r\nThese files need to be installed manually");
                 CopyFolder(tempFolder, remainingFilesFolder);
             }
 
@@ -408,7 +409,7 @@ namespace Streamup_Pluginstall_V2 {
             Directory.Delete(tempFolder, true);
 
             if (containsOBSStudioFolder) {
-                AddTextToLog("Files have been copied / written to your OBS-Studio Folder!\r\nIf there are any issues please restore a backup.");
+                AddTextToLog("Files have been copied / written to your OBS-Studio Folder!\r\nIf there are any issues please restore a backup");
             }
             AddTextToLog("DONE!");
 
