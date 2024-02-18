@@ -122,7 +122,6 @@
             // buttonTest
             // 
             buttonTest.BackColor = Color.FromArgb(66, 67, 86);
-            buttonTest.Enabled = false;
             buttonTest.FlatAppearance.BorderSize = 0;
             buttonTest.FlatStyle = FlatStyle.Flat;
             buttonTest.Location = new Point(799, 78);
@@ -131,7 +130,6 @@
             buttonTest.TabIndex = 12;
             buttonTest.Text = "Disabled for Andilippi";
             buttonTest.UseVisualStyleBackColor = false;
-            buttonTest.Visible = false;
             buttonTest.Click += buttonExpand_Click;
             // 
             // checkBoxExtract
@@ -294,6 +292,7 @@
             richTextBoxLog.BorderStyle = BorderStyle.None;
             richTextBoxLog.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             richTextBoxLog.ForeColor = Color.White;
+            richTextBoxLog.HideSelection = false;
             richTextBoxLog.Location = new Point(5, 0);
             richTextBoxLog.Name = "richTextBoxLog";
             richTextBoxLog.ReadOnly = true;

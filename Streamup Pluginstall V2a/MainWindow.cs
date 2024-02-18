@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using System.IO.Compression;
 using System.Security.Principal;
 using HttpClientProgress;
+using Streamup_Pluginstall_V2.Custom_Controls;
 
 namespace Streamup_Pluginstall_V2 {
     public partial class MainWindow : Form {
@@ -17,6 +18,7 @@ namespace Streamup_Pluginstall_V2 {
         string outOfDateOBSPlugins = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "StreamUP-OutdatedPluginsList.txt");
         readonly string appFolder = AppDomain.CurrentDomain.BaseDirectory;
         string currentVersion = "2.0.0";
+        bool hasOutDatedFile = false;
 
         public MainWindow() {
             InitializeComponent();
@@ -161,7 +163,7 @@ namespace Streamup_Pluginstall_V2 {
             SetCheckedPlugins(requiredPlugins);
 
             if (File.Exists(outOfDateOBSPlugins)) {
-                radioButtonOutdated.Visible = true;
+                radioButtonOutdated.Enabled = true;
             }
         }
 
@@ -329,6 +331,26 @@ namespace Streamup_Pluginstall_V2 {
             progressBarDownload.Visible = false;
         }
 
+        private void SetCheckboxes(string mode) {
+            var radioButtons = this.Controls.OfType<RadioButtonFlat>();
+            if (mode == "enable" && radioButtonCustom.Checked) {
+                buttonClearSelection.Enabled = true;
+            } else if (mode == "disable") {
+                buttonClearSelection.Enabled = false;
+            }
+            foreach (var radioButton in radioButtons) {
+                if (mode == "enable") {
+                    if (radioButton.Name == "radioButtonOutdated") {
+                        radioButton.Enabled = hasOutDatedFile;
+                    } else {
+                        radioButton.Enabled = true;
+                    }
+                } else if (mode == "disable") {
+                    radioButton.Enabled = false;
+                }
+            }
+        }
+
         private async void buttonDownload_Click(object sender, EventArgs e) {
             if (checkBoxOpenUrlsOnly.Checked) {
                 var openURLs = MessageBox.Show($"Are you sure you want to open {checkedListBoxPlugins.CheckedItems.Count} links in your default browser??", $"Open Links in Browser", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -352,6 +374,8 @@ namespace Streamup_Pluginstall_V2 {
                 return;
             }
 
+            SetCheckboxes("disable");
+
             string tempFolder = Path.Combine(appFolder, "temp");
             string remainingFilesFolder = Path.Combine(appFolder, "Remaining Files");
             string destinationFolder = textBoxSaveLocation.Text;
@@ -362,7 +386,9 @@ namespace Streamup_Pluginstall_V2 {
                 bool canContinue = GetOBSProcesses(destinationFolder);
                 if (!canContinue) {
                     AddTextToLog("User cancelled or couldn't close OBS-Studio");
+                    SetCheckboxes("enable");
                     return;
+
                 }
                 AddTextToLog("Making backup of OBS-Studio Folder");
                 AddTextToLog("Please wait, this may take a while!");
@@ -385,6 +411,7 @@ namespace Streamup_Pluginstall_V2 {
                 Directory.Delete(tempFolder, true);
                 AddTextToLog(@$"Done downloading! You can find the files in:");
                 AddTextToLog($@"""File://{Path.Combine(destinationFolder, "Downloaded Files")}""");
+                SetCheckboxes("enable");
                 return;
             }
 
@@ -417,7 +444,7 @@ namespace Streamup_Pluginstall_V2 {
                 AddTextToLog("Files have been copied / written to your OBS-Studio Folder!\r\nIf there are any issues please restore a backup");
             }
             AddTextToLog("DONE!");
-
+            SetCheckboxes("enable");
             /* string finalText = @"---------------
 All plugins should be downloaded and extracted.
 You can click the button 'Open download folder' to open the directory with the proper files in it.
@@ -491,8 +518,24 @@ Thank you for using the Pluginstaller by StreamUP";
 
         private async void buttonExpand_Click(object sender, EventArgs e) {
             // Test button
-            AboutWindow aboutWindow = new AboutWindow();
-            aboutWindow.ShowDialog();
+            // AboutWindow aboutWindow = new AboutWindow();
+            //aboutWindow.ShowDialog();
+
+            string mode = "enable";
+
+            var radioButtons = this.Controls.OfType<RadioButtonFlat>();
+
+            foreach (var radioButton in radioButtons) {
+                if (mode == "enable") {
+                    if (radioButton.Name == "radioButtonOutdated") {
+                        radioButton.Enabled = hasOutDatedFile;
+                    } else {
+                        radioButton.Enabled = true;
+                    }
+                } else if (mode == "disable") {
+                    radioButton.Enabled = false;
+                }                
+            }
         }
 
         private void CopyFolder(string sourceFolder, string destinationFolder) {
@@ -758,10 +801,12 @@ If you click No you can select a different location where you can download the O
             if (e.ChangeType == WatcherChangeTypes.Created) {
                 Invoke(new Action(() => {
                     radioButtonOutdated.Enabled = true;
+                    hasOutDatedFile = true;
                 }));
             } else if (e.ChangeType == WatcherChangeTypes.Deleted) {
                 Invoke(new Action(() => {
                     radioButtonOutdated.Enabled = false;
+                    hasOutDatedFile = false;
                     radioButtonRequired.Select();
                 }));
             }
