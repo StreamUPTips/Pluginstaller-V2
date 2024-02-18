@@ -25,8 +25,27 @@
         private void InitializeComponent() {
             pictureBoxPluginstallerLogo = new PictureBox();
             panelLeft = new Panel();
+            panelSpacer4 = new Panel();
+            panelWaldo = new Panel();
+            panelWaldoLinks3 = new Panel();
+            linkLabelWaldoThrone = new LinkLabel();
+            pictureBoxWaldoThrone = new PictureBox();
+            panelWaldoLinks2 = new Panel();
+            linkLabelWaldoX = new LinkLabel();
+            pictureBoxWaldoX = new PictureBox();
+            linkLabelWaldoTikTok = new LinkLabel();
+            pictureBoxWaldoTikTok = new PictureBox();
+            panelWaldoLinks1 = new Panel();
+            linkLabelWaldoYoutube = new LinkLabel();
+            pictureBoxWaldoYoutube = new PictureBox();
+            linkLabelWaldoTwitch = new LinkLabel();
+            pictureBoxWaldoTwitch = new PictureBox();
+            panelWaldoHeader = new Panel();
+            labelWaldo = new Label();
+            labelWaldoFounder = new Label();
+            panelWaldoColorHighlight = new Panel();
+            panelSpacer3 = new Panel();
             panelAndilippi = new Panel();
-            panelAndilippiLinks4 = new Panel();
             linkLabelAndilippiAllTheLinks = new LinkLabel();
             pictureBoxAndilippiMoreLinks = new PictureBox();
             linkLabelAndilippiPatreon = new LinkLabel();
@@ -34,11 +53,7 @@
             panelAndilippiLinks3 = new Panel();
             linkLabelAndilippiKoFi = new LinkLabel();
             pictureBoxAndilippiKoFi = new PictureBox();
-            linkLabelAndilippiThrone = new LinkLabel();
-            pictureBoxAndilippiThrone = new PictureBox();
             panelAndilippiLinks2 = new Panel();
-            linkLabelAndilippiX = new LinkLabel();
-            pictureBoxAndilippiX = new PictureBox();
             linkLabelAndilippiTikTok = new LinkLabel();
             pictureBoxAndilippiTikTok = new PictureBox();
             panelAndilippiLinks1 = new Panel();
@@ -85,17 +100,25 @@
             labelStreamUP = new Label();
             panelStreamUPColorHighlight = new Panel();
             panelRight = new Panel();
+            pictureBoxLove = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPluginstallerLogo).BeginInit();
             panelLeft.SuspendLayout();
+            panelWaldo.SuspendLayout();
+            panelWaldoLinks3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoThrone).BeginInit();
+            panelWaldoLinks2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoTikTok).BeginInit();
+            panelWaldoLinks1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoYoutube).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoTwitch).BeginInit();
+            panelWaldoHeader.SuspendLayout();
             panelAndilippi.SuspendLayout();
-            panelAndilippiLinks4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiMoreLinks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiPatreon).BeginInit();
             panelAndilippiLinks3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiKoFi).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiThrone).BeginInit();
             panelAndilippiLinks2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiX).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiTikTok).BeginInit();
             panelAndilippiLinks1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiYoutube).BeginInit();
@@ -119,6 +142,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPPatreon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPKoFi).BeginInit();
             panelStreamUPHeader.SuspendLayout();
+            panelRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLove).BeginInit();
             SuspendLayout();
             // 
             // pictureBoxPluginstallerLogo
@@ -127,13 +152,16 @@
             pictureBoxPluginstallerLogo.Image = Properties.Resources.StreamUP_PluginstallerV2;
             pictureBoxPluginstallerLogo.Location = new Point(0, 0);
             pictureBoxPluginstallerLogo.Name = "pictureBoxPluginstallerLogo";
-            pictureBoxPluginstallerLogo.Size = new Size(392, 100);
+            pictureBoxPluginstallerLogo.Size = new Size(412, 100);
             pictureBoxPluginstallerLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxPluginstallerLogo.TabIndex = 0;
             pictureBoxPluginstallerLogo.TabStop = false;
             // 
             // panelLeft
             // 
+            panelLeft.Controls.Add(panelSpacer4);
+            panelLeft.Controls.Add(panelWaldo);
+            panelLeft.Controls.Add(panelSpacer3);
             panelLeft.Controls.Add(panelAndilippi);
             panelLeft.Controls.Add(panelSpacer2);
             panelLeft.Controls.Add(panelSilverlink);
@@ -144,13 +172,240 @@
             panelLeft.Location = new Point(0, 0);
             panelLeft.Margin = new Padding(3, 3, 3, 30);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new Size(392, 850);
+            panelLeft.Size = new Size(412, 736);
             panelLeft.TabIndex = 1;
+            // 
+            // panelSpacer4
+            // 
+            panelSpacer4.Dock = DockStyle.Top;
+            panelSpacer4.Location = new Point(0, 730);
+            panelSpacer4.Name = "panelSpacer4";
+            panelSpacer4.Size = new Size(412, 10);
+            panelSpacer4.TabIndex = 10;
+            // 
+            // panelWaldo
+            // 
+            panelWaldo.BackColor = Color.FromArgb(25, 28, 50);
+            panelWaldo.Controls.Add(panelWaldoLinks3);
+            panelWaldo.Controls.Add(panelWaldoLinks2);
+            panelWaldo.Controls.Add(panelWaldoLinks1);
+            panelWaldo.Controls.Add(panelWaldoHeader);
+            panelWaldo.Controls.Add(panelWaldoColorHighlight);
+            panelWaldo.Dock = DockStyle.Top;
+            panelWaldo.Location = new Point(0, 570);
+            panelWaldo.Margin = new Padding(3, 3, 3, 30);
+            panelWaldo.Name = "panelWaldo";
+            panelWaldo.Size = new Size(412, 160);
+            panelWaldo.TabIndex = 9;
+            // 
+            // panelWaldoLinks3
+            // 
+            panelWaldoLinks3.Controls.Add(linkLabelWaldoThrone);
+            panelWaldoLinks3.Controls.Add(pictureBoxWaldoThrone);
+            panelWaldoLinks3.Dock = DockStyle.Top;
+            panelWaldoLinks3.Location = new Point(12, 120);
+            panelWaldoLinks3.Name = "panelWaldoLinks3";
+            panelWaldoLinks3.Size = new Size(400, 40);
+            panelWaldoLinks3.TabIndex = 6;
+            // 
+            // linkLabelWaldoThrone
+            // 
+            linkLabelWaldoThrone.Dock = DockStyle.Left;
+            linkLabelWaldoThrone.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            linkLabelWaldoThrone.LinkColor = Color.FromArgb(192, 255, 255);
+            linkLabelWaldoThrone.Location = new Point(65, 0);
+            linkLabelWaldoThrone.Name = "linkLabelWaldoThrone";
+            linkLabelWaldoThrone.Size = new Size(135, 40);
+            linkLabelWaldoThrone.TabIndex = 6;
+            linkLabelWaldoThrone.TabStop = true;
+            linkLabelWaldoThrone.Text = "WaldoAndFriends";
+            linkLabelWaldoThrone.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBoxWaldoThrone
+            // 
+            pictureBoxWaldoThrone.Dock = DockStyle.Left;
+            pictureBoxWaldoThrone.Image = Properties.Resources.AboutWindowThrone;
+            pictureBoxWaldoThrone.Location = new Point(0, 0);
+            pictureBoxWaldoThrone.Name = "pictureBoxWaldoThrone";
+            pictureBoxWaldoThrone.Size = new Size(65, 40);
+            pictureBoxWaldoThrone.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxWaldoThrone.TabIndex = 5;
+            pictureBoxWaldoThrone.TabStop = false;
+            // 
+            // panelWaldoLinks2
+            // 
+            panelWaldoLinks2.Controls.Add(linkLabelWaldoX);
+            panelWaldoLinks2.Controls.Add(pictureBoxWaldoX);
+            panelWaldoLinks2.Controls.Add(linkLabelWaldoTikTok);
+            panelWaldoLinks2.Controls.Add(pictureBoxWaldoTikTok);
+            panelWaldoLinks2.Dock = DockStyle.Top;
+            panelWaldoLinks2.Location = new Point(12, 80);
+            panelWaldoLinks2.Name = "panelWaldoLinks2";
+            panelWaldoLinks2.Size = new Size(400, 40);
+            panelWaldoLinks2.TabIndex = 5;
+            // 
+            // linkLabelWaldoX
+            // 
+            linkLabelWaldoX.Dock = DockStyle.Left;
+            linkLabelWaldoX.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            linkLabelWaldoX.LinkColor = Color.FromArgb(192, 255, 255);
+            linkLabelWaldoX.Location = new Point(265, 0);
+            linkLabelWaldoX.Name = "linkLabelWaldoX";
+            linkLabelWaldoX.Size = new Size(135, 40);
+            linkLabelWaldoX.TabIndex = 8;
+            linkLabelWaldoX.TabStop = true;
+            linkLabelWaldoX.Text = "@WaldoAndFriends";
+            linkLabelWaldoX.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBoxWaldoX
+            // 
+            pictureBoxWaldoX.Dock = DockStyle.Left;
+            pictureBoxWaldoX.Image = Properties.Resources.AboutWindowX;
+            pictureBoxWaldoX.Location = new Point(200, 0);
+            pictureBoxWaldoX.Name = "pictureBoxWaldoX";
+            pictureBoxWaldoX.Size = new Size(65, 40);
+            pictureBoxWaldoX.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxWaldoX.TabIndex = 7;
+            pictureBoxWaldoX.TabStop = false;
+            // 
+            // linkLabelWaldoTikTok
+            // 
+            linkLabelWaldoTikTok.Dock = DockStyle.Left;
+            linkLabelWaldoTikTok.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            linkLabelWaldoTikTok.LinkColor = Color.FromArgb(192, 255, 255);
+            linkLabelWaldoTikTok.Location = new Point(65, 0);
+            linkLabelWaldoTikTok.Name = "linkLabelWaldoTikTok";
+            linkLabelWaldoTikTok.Size = new Size(135, 40);
+            linkLabelWaldoTikTok.TabIndex = 9;
+            linkLabelWaldoTikTok.TabStop = true;
+            linkLabelWaldoTikTok.Text = "@WaldoAndFriends";
+            linkLabelWaldoTikTok.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBoxWaldoTikTok
+            // 
+            pictureBoxWaldoTikTok.Dock = DockStyle.Left;
+            pictureBoxWaldoTikTok.Image = Properties.Resources.AboutWindowTikTok;
+            pictureBoxWaldoTikTok.Location = new Point(0, 0);
+            pictureBoxWaldoTikTok.Name = "pictureBoxWaldoTikTok";
+            pictureBoxWaldoTikTok.Size = new Size(65, 40);
+            pictureBoxWaldoTikTok.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxWaldoTikTok.TabIndex = 5;
+            pictureBoxWaldoTikTok.TabStop = false;
+            // 
+            // panelWaldoLinks1
+            // 
+            panelWaldoLinks1.Controls.Add(linkLabelWaldoYoutube);
+            panelWaldoLinks1.Controls.Add(pictureBoxWaldoYoutube);
+            panelWaldoLinks1.Controls.Add(linkLabelWaldoTwitch);
+            panelWaldoLinks1.Controls.Add(pictureBoxWaldoTwitch);
+            panelWaldoLinks1.Dock = DockStyle.Top;
+            panelWaldoLinks1.Location = new Point(12, 40);
+            panelWaldoLinks1.Name = "panelWaldoLinks1";
+            panelWaldoLinks1.Size = new Size(400, 40);
+            panelWaldoLinks1.TabIndex = 4;
+            // 
+            // linkLabelWaldoYoutube
+            // 
+            linkLabelWaldoYoutube.Dock = DockStyle.Left;
+            linkLabelWaldoYoutube.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            linkLabelWaldoYoutube.LinkColor = Color.FromArgb(192, 255, 255);
+            linkLabelWaldoYoutube.Location = new Point(265, 0);
+            linkLabelWaldoYoutube.Name = "linkLabelWaldoYoutube";
+            linkLabelWaldoYoutube.Size = new Size(135, 40);
+            linkLabelWaldoYoutube.TabIndex = 1;
+            linkLabelWaldoYoutube.TabStop = true;
+            linkLabelWaldoYoutube.Text = "@WaldoAndFriends";
+            linkLabelWaldoYoutube.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBoxWaldoYoutube
+            // 
+            pictureBoxWaldoYoutube.Dock = DockStyle.Left;
+            pictureBoxWaldoYoutube.Image = Properties.Resources.AboutWindowYoutube;
+            pictureBoxWaldoYoutube.Location = new Point(200, 0);
+            pictureBoxWaldoYoutube.Name = "pictureBoxWaldoYoutube";
+            pictureBoxWaldoYoutube.Size = new Size(65, 40);
+            pictureBoxWaldoYoutube.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxWaldoYoutube.TabIndex = 2;
+            pictureBoxWaldoYoutube.TabStop = false;
+            // 
+            // linkLabelWaldoTwitch
+            // 
+            linkLabelWaldoTwitch.Dock = DockStyle.Left;
+            linkLabelWaldoTwitch.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            linkLabelWaldoTwitch.LinkColor = Color.FromArgb(192, 255, 255);
+            linkLabelWaldoTwitch.Location = new Point(65, 0);
+            linkLabelWaldoTwitch.Name = "linkLabelWaldoTwitch";
+            linkLabelWaldoTwitch.Size = new Size(135, 40);
+            linkLabelWaldoTwitch.TabIndex = 1;
+            linkLabelWaldoTwitch.TabStop = true;
+            linkLabelWaldoTwitch.Text = "WaldoAndFriends";
+            linkLabelWaldoTwitch.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBoxWaldoTwitch
+            // 
+            pictureBoxWaldoTwitch.Dock = DockStyle.Left;
+            pictureBoxWaldoTwitch.Image = Properties.Resources.AboutWindowTwitch;
+            pictureBoxWaldoTwitch.Location = new Point(0, 0);
+            pictureBoxWaldoTwitch.Margin = new Padding(10);
+            pictureBoxWaldoTwitch.Name = "pictureBoxWaldoTwitch";
+            pictureBoxWaldoTwitch.Padding = new Padding(10);
+            pictureBoxWaldoTwitch.Size = new Size(65, 40);
+            pictureBoxWaldoTwitch.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxWaldoTwitch.TabIndex = 0;
+            pictureBoxWaldoTwitch.TabStop = false;
+            // 
+            // panelWaldoHeader
+            // 
+            panelWaldoHeader.Controls.Add(labelWaldo);
+            panelWaldoHeader.Controls.Add(labelWaldoFounder);
+            panelWaldoHeader.Dock = DockStyle.Top;
+            panelWaldoHeader.Location = new Point(12, 0);
+            panelWaldoHeader.Name = "panelWaldoHeader";
+            panelWaldoHeader.Size = new Size(400, 40);
+            panelWaldoHeader.TabIndex = 3;
+            // 
+            // labelWaldo
+            // 
+            labelWaldo.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            labelWaldo.ForeColor = Color.White;
+            labelWaldo.Location = new Point(12, 0);
+            labelWaldo.Name = "labelWaldo";
+            labelWaldo.Size = new Size(195, 40);
+            labelWaldo.TabIndex = 2;
+            labelWaldo.Text = "WaldoAndFriends";
+            labelWaldo.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // labelWaldoFounder
+            // 
+            labelWaldoFounder.Dock = DockStyle.Right;
+            labelWaldoFounder.ForeColor = Color.FromArgb(255, 255, 192);
+            labelWaldoFounder.Location = new Point(300, 0);
+            labelWaldoFounder.Name = "labelWaldoFounder";
+            labelWaldoFounder.Size = new Size(100, 40);
+            labelWaldoFounder.TabIndex = 3;
+            labelWaldoFounder.Text = "Co-Founder";
+            labelWaldoFounder.TextAlign = ContentAlignment.BottomRight;
+            // 
+            // panelWaldoColorHighlight
+            // 
+            panelWaldoColorHighlight.BackColor = Color.FromArgb(239, 183, 0);
+            panelWaldoColorHighlight.Dock = DockStyle.Left;
+            panelWaldoColorHighlight.Location = new Point(0, 0);
+            panelWaldoColorHighlight.Name = "panelWaldoColorHighlight";
+            panelWaldoColorHighlight.Size = new Size(12, 160);
+            panelWaldoColorHighlight.TabIndex = 2;
+            // 
+            // panelSpacer3
+            // 
+            panelSpacer3.Dock = DockStyle.Top;
+            panelSpacer3.Location = new Point(0, 560);
+            panelSpacer3.Name = "panelSpacer3";
+            panelSpacer3.Size = new Size(412, 10);
+            panelSpacer3.TabIndex = 8;
             // 
             // panelAndilippi
             // 
             panelAndilippi.BackColor = Color.FromArgb(25, 28, 50);
-            panelAndilippi.Controls.Add(panelAndilippiLinks4);
             panelAndilippi.Controls.Add(panelAndilippiLinks3);
             panelAndilippi.Controls.Add(panelAndilippiLinks2);
             panelAndilippi.Controls.Add(panelAndilippiLinks1);
@@ -160,29 +415,17 @@
             panelAndilippi.Location = new Point(0, 400);
             panelAndilippi.Margin = new Padding(3, 3, 3, 30);
             panelAndilippi.Name = "panelAndilippi";
-            panelAndilippi.Size = new Size(392, 200);
+            panelAndilippi.Size = new Size(412, 160);
             panelAndilippi.TabIndex = 7;
-            // 
-            // panelAndilippiLinks4
-            // 
-            panelAndilippiLinks4.Controls.Add(linkLabelAndilippiAllTheLinks);
-            panelAndilippiLinks4.Controls.Add(pictureBoxAndilippiMoreLinks);
-            panelAndilippiLinks4.Controls.Add(linkLabelAndilippiPatreon);
-            panelAndilippiLinks4.Controls.Add(pictureBoxAndilippiPatreon);
-            panelAndilippiLinks4.Dock = DockStyle.Top;
-            panelAndilippiLinks4.Location = new Point(12, 160);
-            panelAndilippiLinks4.Name = "panelAndilippiLinks4";
-            panelAndilippiLinks4.Size = new Size(380, 40);
-            panelAndilippiLinks4.TabIndex = 7;
             // 
             // linkLabelAndilippiAllTheLinks
             // 
             linkLabelAndilippiAllTheLinks.Dock = DockStyle.Left;
             linkLabelAndilippiAllTheLinks.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             linkLabelAndilippiAllTheLinks.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelAndilippiAllTheLinks.Location = new Point(255, 0);
+            linkLabelAndilippiAllTheLinks.Location = new Point(265, 0);
             linkLabelAndilippiAllTheLinks.Name = "linkLabelAndilippiAllTheLinks";
-            linkLabelAndilippiAllTheLinks.Size = new Size(125, 40);
+            linkLabelAndilippiAllTheLinks.Size = new Size(135, 40);
             linkLabelAndilippiAllTheLinks.TabIndex = 12;
             linkLabelAndilippiAllTheLinks.TabStop = true;
             linkLabelAndilippiAllTheLinks.Text = "More links";
@@ -193,7 +436,7 @@
             // 
             pictureBoxAndilippiMoreLinks.Dock = DockStyle.Left;
             pictureBoxAndilippiMoreLinks.Image = Properties.Resources.AboutWindowMoreLinks;
-            pictureBoxAndilippiMoreLinks.Location = new Point(190, 0);
+            pictureBoxAndilippiMoreLinks.Location = new Point(200, 0);
             pictureBoxAndilippiMoreLinks.Name = "pictureBoxAndilippiMoreLinks";
             pictureBoxAndilippiMoreLinks.Size = new Size(65, 40);
             pictureBoxAndilippiMoreLinks.SizeMode = PictureBoxSizeMode.Zoom;
@@ -205,12 +448,12 @@
             linkLabelAndilippiPatreon.Dock = DockStyle.Left;
             linkLabelAndilippiPatreon.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             linkLabelAndilippiPatreon.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelAndilippiPatreon.Location = new Point(65, 0);
+            linkLabelAndilippiPatreon.Location = new Point(265, 0);
             linkLabelAndilippiPatreon.Name = "linkLabelAndilippiPatreon";
-            linkLabelAndilippiPatreon.Size = new Size(125, 40);
+            linkLabelAndilippiPatreon.Size = new Size(135, 40);
             linkLabelAndilippiPatreon.TabIndex = 10;
             linkLabelAndilippiPatreon.TabStop = true;
-            linkLabelAndilippiPatreon.Text = "@Andilippi";
+            linkLabelAndilippiPatreon.Text = "Andilippi";
             linkLabelAndilippiPatreon.TextAlign = ContentAlignment.MiddleLeft;
             linkLabelAndilippiPatreon.LinkClicked += linkLabelAndilippiPatreon_LinkClicked;
             // 
@@ -218,7 +461,7 @@
             // 
             pictureBoxAndilippiPatreon.Dock = DockStyle.Left;
             pictureBoxAndilippiPatreon.Image = Properties.Resources.AboutWindowPatreon;
-            pictureBoxAndilippiPatreon.Location = new Point(0, 0);
+            pictureBoxAndilippiPatreon.Location = new Point(200, 0);
             pictureBoxAndilippiPatreon.Name = "pictureBoxAndilippiPatreon";
             pictureBoxAndilippiPatreon.Size = new Size(65, 40);
             pictureBoxAndilippiPatreon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -227,14 +470,14 @@
             // 
             // panelAndilippiLinks3
             // 
+            panelAndilippiLinks3.Controls.Add(linkLabelAndilippiAllTheLinks);
+            panelAndilippiLinks3.Controls.Add(pictureBoxAndilippiMoreLinks);
             panelAndilippiLinks3.Controls.Add(linkLabelAndilippiKoFi);
             panelAndilippiLinks3.Controls.Add(pictureBoxAndilippiKoFi);
-            panelAndilippiLinks3.Controls.Add(linkLabelAndilippiThrone);
-            panelAndilippiLinks3.Controls.Add(pictureBoxAndilippiThrone);
             panelAndilippiLinks3.Dock = DockStyle.Top;
             panelAndilippiLinks3.Location = new Point(12, 120);
             panelAndilippiLinks3.Name = "panelAndilippiLinks3";
-            panelAndilippiLinks3.Size = new Size(380, 40);
+            panelAndilippiLinks3.Size = new Size(400, 40);
             panelAndilippiLinks3.TabIndex = 6;
             // 
             // linkLabelAndilippiKoFi
@@ -242,12 +485,12 @@
             linkLabelAndilippiKoFi.Dock = DockStyle.Left;
             linkLabelAndilippiKoFi.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             linkLabelAndilippiKoFi.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelAndilippiKoFi.Location = new Point(255, 0);
+            linkLabelAndilippiKoFi.Location = new Point(65, 0);
             linkLabelAndilippiKoFi.Name = "linkLabelAndilippiKoFi";
-            linkLabelAndilippiKoFi.Size = new Size(125, 40);
+            linkLabelAndilippiKoFi.Size = new Size(135, 40);
             linkLabelAndilippiKoFi.TabIndex = 8;
             linkLabelAndilippiKoFi.TabStop = true;
-            linkLabelAndilippiKoFi.Text = "@Andilippi";
+            linkLabelAndilippiKoFi.Text = "Andilippi";
             linkLabelAndilippiKoFi.TextAlign = ContentAlignment.MiddleLeft;
             linkLabelAndilippiKoFi.LinkClicked += linkLabelAndilippiKoFi_LinkClicked;
             // 
@@ -255,74 +498,24 @@
             // 
             pictureBoxAndilippiKoFi.Dock = DockStyle.Left;
             pictureBoxAndilippiKoFi.Image = Properties.Resources.AboutWindowKoFi;
-            pictureBoxAndilippiKoFi.Location = new Point(190, 0);
+            pictureBoxAndilippiKoFi.Location = new Point(0, 0);
             pictureBoxAndilippiKoFi.Name = "pictureBoxAndilippiKoFi";
             pictureBoxAndilippiKoFi.Size = new Size(65, 40);
             pictureBoxAndilippiKoFi.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxAndilippiKoFi.TabIndex = 7;
             pictureBoxAndilippiKoFi.TabStop = false;
             // 
-            // linkLabelAndilippiThrone
-            // 
-            linkLabelAndilippiThrone.Dock = DockStyle.Left;
-            linkLabelAndilippiThrone.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            linkLabelAndilippiThrone.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelAndilippiThrone.Location = new Point(65, 0);
-            linkLabelAndilippiThrone.Name = "linkLabelAndilippiThrone";
-            linkLabelAndilippiThrone.Size = new Size(125, 40);
-            linkLabelAndilippiThrone.TabIndex = 6;
-            linkLabelAndilippiThrone.TabStop = true;
-            linkLabelAndilippiThrone.Text = "@Andilippi";
-            linkLabelAndilippiThrone.TextAlign = ContentAlignment.MiddleLeft;
-            linkLabelAndilippiThrone.LinkClicked += linkLabelAndilippiThrone_LinkClicked;
-            // 
-            // pictureBoxAndilippiThrone
-            // 
-            pictureBoxAndilippiThrone.Dock = DockStyle.Left;
-            pictureBoxAndilippiThrone.Image = Properties.Resources.AboutWindowThrone;
-            pictureBoxAndilippiThrone.Location = new Point(0, 0);
-            pictureBoxAndilippiThrone.Name = "pictureBoxAndilippiThrone";
-            pictureBoxAndilippiThrone.Size = new Size(65, 40);
-            pictureBoxAndilippiThrone.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBoxAndilippiThrone.TabIndex = 5;
-            pictureBoxAndilippiThrone.TabStop = false;
-            // 
             // panelAndilippiLinks2
             // 
-            panelAndilippiLinks2.Controls.Add(linkLabelAndilippiX);
-            panelAndilippiLinks2.Controls.Add(pictureBoxAndilippiX);
+            panelAndilippiLinks2.Controls.Add(linkLabelAndilippiPatreon);
+            panelAndilippiLinks2.Controls.Add(pictureBoxAndilippiPatreon);
             panelAndilippiLinks2.Controls.Add(linkLabelAndilippiTikTok);
             panelAndilippiLinks2.Controls.Add(pictureBoxAndilippiTikTok);
             panelAndilippiLinks2.Dock = DockStyle.Top;
             panelAndilippiLinks2.Location = new Point(12, 80);
             panelAndilippiLinks2.Name = "panelAndilippiLinks2";
-            panelAndilippiLinks2.Size = new Size(380, 40);
+            panelAndilippiLinks2.Size = new Size(400, 40);
             panelAndilippiLinks2.TabIndex = 5;
-            // 
-            // linkLabelAndilippiX
-            // 
-            linkLabelAndilippiX.Dock = DockStyle.Left;
-            linkLabelAndilippiX.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            linkLabelAndilippiX.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelAndilippiX.Location = new Point(255, 0);
-            linkLabelAndilippiX.Name = "linkLabelAndilippiX";
-            linkLabelAndilippiX.Size = new Size(125, 40);
-            linkLabelAndilippiX.TabIndex = 8;
-            linkLabelAndilippiX.TabStop = true;
-            linkLabelAndilippiX.Text = "@Andi_Stone";
-            linkLabelAndilippiX.TextAlign = ContentAlignment.MiddleLeft;
-            linkLabelAndilippiX.LinkClicked += linkLabelAndilippiX_LinkClicked;
-            // 
-            // pictureBoxAndilippiX
-            // 
-            pictureBoxAndilippiX.Dock = DockStyle.Left;
-            pictureBoxAndilippiX.Image = Properties.Resources.AboutWindowX;
-            pictureBoxAndilippiX.Location = new Point(190, 0);
-            pictureBoxAndilippiX.Name = "pictureBoxAndilippiX";
-            pictureBoxAndilippiX.Size = new Size(65, 40);
-            pictureBoxAndilippiX.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBoxAndilippiX.TabIndex = 7;
-            pictureBoxAndilippiX.TabStop = false;
             // 
             // linkLabelAndilippiTikTok
             // 
@@ -331,7 +524,7 @@
             linkLabelAndilippiTikTok.LinkColor = Color.FromArgb(192, 255, 255);
             linkLabelAndilippiTikTok.Location = new Point(65, 0);
             linkLabelAndilippiTikTok.Name = "linkLabelAndilippiTikTok";
-            linkLabelAndilippiTikTok.Size = new Size(125, 40);
+            linkLabelAndilippiTikTok.Size = new Size(135, 40);
             linkLabelAndilippiTikTok.TabIndex = 6;
             linkLabelAndilippiTikTok.TabStop = true;
             linkLabelAndilippiTikTok.Text = "@Andilippi";
@@ -358,7 +551,7 @@
             panelAndilippiLinks1.Dock = DockStyle.Top;
             panelAndilippiLinks1.Location = new Point(12, 40);
             panelAndilippiLinks1.Name = "panelAndilippiLinks1";
-            panelAndilippiLinks1.Size = new Size(380, 40);
+            panelAndilippiLinks1.Size = new Size(400, 40);
             panelAndilippiLinks1.TabIndex = 4;
             // 
             // linkLabelAndilippiYoutube
@@ -366,9 +559,9 @@
             linkLabelAndilippiYoutube.Dock = DockStyle.Left;
             linkLabelAndilippiYoutube.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             linkLabelAndilippiYoutube.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelAndilippiYoutube.Location = new Point(255, 0);
+            linkLabelAndilippiYoutube.Location = new Point(265, 0);
             linkLabelAndilippiYoutube.Name = "linkLabelAndilippiYoutube";
-            linkLabelAndilippiYoutube.Size = new Size(125, 40);
+            linkLabelAndilippiYoutube.Size = new Size(135, 40);
             linkLabelAndilippiYoutube.TabIndex = 1;
             linkLabelAndilippiYoutube.TabStop = true;
             linkLabelAndilippiYoutube.Text = "@Andilippi";
@@ -379,7 +572,7 @@
             // 
             pictureBoxAndilippiYoutube.Dock = DockStyle.Left;
             pictureBoxAndilippiYoutube.Image = Properties.Resources.AboutWindowYoutube;
-            pictureBoxAndilippiYoutube.Location = new Point(190, 0);
+            pictureBoxAndilippiYoutube.Location = new Point(200, 0);
             pictureBoxAndilippiYoutube.Name = "pictureBoxAndilippiYoutube";
             pictureBoxAndilippiYoutube.Size = new Size(65, 40);
             pictureBoxAndilippiYoutube.SizeMode = PictureBoxSizeMode.Zoom;
@@ -393,7 +586,7 @@
             linkLabelAndilippiTwitch.LinkColor = Color.FromArgb(192, 255, 255);
             linkLabelAndilippiTwitch.Location = new Point(65, 0);
             linkLabelAndilippiTwitch.Name = "linkLabelAndilippiTwitch";
-            linkLabelAndilippiTwitch.Size = new Size(125, 40);
+            linkLabelAndilippiTwitch.Size = new Size(135, 40);
             linkLabelAndilippiTwitch.TabIndex = 1;
             linkLabelAndilippiTwitch.TabStop = true;
             linkLabelAndilippiTwitch.Text = "Andilippi";
@@ -420,7 +613,7 @@
             panelAndilippiHeader.Dock = DockStyle.Top;
             panelAndilippiHeader.Location = new Point(12, 0);
             panelAndilippiHeader.Name = "panelAndilippiHeader";
-            panelAndilippiHeader.Size = new Size(380, 40);
+            panelAndilippiHeader.Size = new Size(400, 40);
             panelAndilippiHeader.TabIndex = 3;
             // 
             // labelAndilippi
@@ -438,7 +631,7 @@
             // 
             labelAndilippiFounder.Dock = DockStyle.Right;
             labelAndilippiFounder.ForeColor = Color.FromArgb(255, 255, 192);
-            labelAndilippiFounder.Location = new Point(280, 0);
+            labelAndilippiFounder.Location = new Point(300, 0);
             labelAndilippiFounder.Name = "labelAndilippiFounder";
             labelAndilippiFounder.Size = new Size(100, 40);
             labelAndilippiFounder.TabIndex = 3;
@@ -451,7 +644,7 @@
             panelAndilippiColorHightlight.Dock = DockStyle.Left;
             panelAndilippiColorHightlight.Location = new Point(0, 0);
             panelAndilippiColorHightlight.Name = "panelAndilippiColorHightlight";
-            panelAndilippiColorHightlight.Size = new Size(12, 200);
+            panelAndilippiColorHightlight.Size = new Size(12, 160);
             panelAndilippiColorHightlight.TabIndex = 2;
             // 
             // panelSpacer2
@@ -459,7 +652,7 @@
             panelSpacer2.Dock = DockStyle.Top;
             panelSpacer2.Location = new Point(0, 390);
             panelSpacer2.Name = "panelSpacer2";
-            panelSpacer2.Size = new Size(392, 10);
+            panelSpacer2.Size = new Size(412, 10);
             panelSpacer2.TabIndex = 6;
             // 
             // panelSilverlink
@@ -474,7 +667,7 @@
             panelSilverlink.Location = new Point(0, 230);
             panelSilverlink.Margin = new Padding(3, 3, 3, 30);
             panelSilverlink.Name = "panelSilverlink";
-            panelSilverlink.Size = new Size(392, 160);
+            panelSilverlink.Size = new Size(412, 160);
             panelSilverlink.TabIndex = 1;
             // 
             // panelSilverlinkLinks3
@@ -484,7 +677,7 @@
             panelSilverlinkLinks3.Dock = DockStyle.Top;
             panelSilverlinkLinks3.Location = new Point(12, 120);
             panelSilverlinkLinks3.Name = "panelSilverlinkLinks3";
-            panelSilverlinkLinks3.Size = new Size(380, 40);
+            panelSilverlinkLinks3.Size = new Size(400, 40);
             panelSilverlinkLinks3.TabIndex = 6;
             // 
             // linkLabelSilverlinkThrone
@@ -494,10 +687,10 @@
             linkLabelSilverlinkThrone.LinkColor = Color.FromArgb(192, 255, 255);
             linkLabelSilverlinkThrone.Location = new Point(65, 0);
             linkLabelSilverlinkThrone.Name = "linkLabelSilverlinkThrone";
-            linkLabelSilverlinkThrone.Size = new Size(125, 40);
+            linkLabelSilverlinkThrone.Size = new Size(135, 40);
             linkLabelSilverlinkThrone.TabIndex = 6;
             linkLabelSilverlinkThrone.TabStop = true;
-            linkLabelSilverlinkThrone.Text = "@itsSilverlink";
+            linkLabelSilverlinkThrone.Text = "itsSilverlink";
             linkLabelSilverlinkThrone.TextAlign = ContentAlignment.MiddleLeft;
             linkLabelSilverlinkThrone.LinkClicked += linkLabelThrone_LinkClicked;
             // 
@@ -521,7 +714,7 @@
             panelSilverlinkLinks2.Dock = DockStyle.Top;
             panelSilverlinkLinks2.Location = new Point(12, 80);
             panelSilverlinkLinks2.Name = "panelSilverlinkLinks2";
-            panelSilverlinkLinks2.Size = new Size(380, 40);
+            panelSilverlinkLinks2.Size = new Size(400, 40);
             panelSilverlinkLinks2.TabIndex = 5;
             // 
             // linkLabelSilverlinkX
@@ -529,9 +722,9 @@
             linkLabelSilverlinkX.Dock = DockStyle.Left;
             linkLabelSilverlinkX.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             linkLabelSilverlinkX.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelSilverlinkX.Location = new Point(255, 0);
+            linkLabelSilverlinkX.Location = new Point(265, 0);
             linkLabelSilverlinkX.Name = "linkLabelSilverlinkX";
-            linkLabelSilverlinkX.Size = new Size(125, 40);
+            linkLabelSilverlinkX.Size = new Size(135, 40);
             linkLabelSilverlinkX.TabIndex = 8;
             linkLabelSilverlinkX.TabStop = true;
             linkLabelSilverlinkX.Text = "@itsSilverlink";
@@ -542,7 +735,7 @@
             // 
             pictureBoxSilverlinkX.Dock = DockStyle.Left;
             pictureBoxSilverlinkX.Image = Properties.Resources.AboutWindowX;
-            pictureBoxSilverlinkX.Location = new Point(190, 0);
+            pictureBoxSilverlinkX.Location = new Point(200, 0);
             pictureBoxSilverlinkX.Name = "pictureBoxSilverlinkX";
             pictureBoxSilverlinkX.Size = new Size(65, 40);
             pictureBoxSilverlinkX.SizeMode = PictureBoxSizeMode.Zoom;
@@ -556,7 +749,7 @@
             linkLabelSilverlinkTikTok.LinkColor = Color.FromArgb(192, 255, 255);
             linkLabelSilverlinkTikTok.Location = new Point(65, 0);
             linkLabelSilverlinkTikTok.Name = "linkLabelSilverlinkTikTok";
-            linkLabelSilverlinkTikTok.Size = new Size(125, 40);
+            linkLabelSilverlinkTikTok.Size = new Size(135, 40);
             linkLabelSilverlinkTikTok.TabIndex = 9;
             linkLabelSilverlinkTikTok.TabStop = true;
             linkLabelSilverlinkTikTok.Text = "@itsSilverlink";
@@ -583,7 +776,7 @@
             panelSilverlinkLinks1.Dock = DockStyle.Top;
             panelSilverlinkLinks1.Location = new Point(12, 40);
             panelSilverlinkLinks1.Name = "panelSilverlinkLinks1";
-            panelSilverlinkLinks1.Size = new Size(380, 40);
+            panelSilverlinkLinks1.Size = new Size(400, 40);
             panelSilverlinkLinks1.TabIndex = 4;
             // 
             // linkLabelSilverlinkYoutube
@@ -591,9 +784,9 @@
             linkLabelSilverlinkYoutube.Dock = DockStyle.Left;
             linkLabelSilverlinkYoutube.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             linkLabelSilverlinkYoutube.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelSilverlinkYoutube.Location = new Point(255, 0);
+            linkLabelSilverlinkYoutube.Location = new Point(265, 0);
             linkLabelSilverlinkYoutube.Name = "linkLabelSilverlinkYoutube";
-            linkLabelSilverlinkYoutube.Size = new Size(125, 40);
+            linkLabelSilverlinkYoutube.Size = new Size(135, 40);
             linkLabelSilverlinkYoutube.TabIndex = 1;
             linkLabelSilverlinkYoutube.TabStop = true;
             linkLabelSilverlinkYoutube.Text = "@itsSilverlink";
@@ -604,7 +797,7 @@
             // 
             pictureBoxSilverlinkYT.Dock = DockStyle.Left;
             pictureBoxSilverlinkYT.Image = Properties.Resources.AboutWindowYoutube;
-            pictureBoxSilverlinkYT.Location = new Point(190, 0);
+            pictureBoxSilverlinkYT.Location = new Point(200, 0);
             pictureBoxSilverlinkYT.Name = "pictureBoxSilverlinkYT";
             pictureBoxSilverlinkYT.Size = new Size(65, 40);
             pictureBoxSilverlinkYT.SizeMode = PictureBoxSizeMode.Zoom;
@@ -618,7 +811,7 @@
             linkLabelSilverlinkTwitch.LinkColor = Color.FromArgb(192, 255, 255);
             linkLabelSilverlinkTwitch.Location = new Point(65, 0);
             linkLabelSilverlinkTwitch.Name = "linkLabelSilverlinkTwitch";
-            linkLabelSilverlinkTwitch.Size = new Size(125, 40);
+            linkLabelSilverlinkTwitch.Size = new Size(135, 40);
             linkLabelSilverlinkTwitch.TabIndex = 1;
             linkLabelSilverlinkTwitch.TabStop = true;
             linkLabelSilverlinkTwitch.Text = "Silverlink";
@@ -645,7 +838,7 @@
             panelSilverlinkHeader.Dock = DockStyle.Top;
             panelSilverlinkHeader.Location = new Point(12, 0);
             panelSilverlinkHeader.Name = "panelSilverlinkHeader";
-            panelSilverlinkHeader.Size = new Size(380, 40);
+            panelSilverlinkHeader.Size = new Size(400, 40);
             panelSilverlinkHeader.TabIndex = 3;
             // 
             // labelSilverlink
@@ -663,7 +856,7 @@
             // 
             labelSilverlinkCreator.Dock = DockStyle.Right;
             labelSilverlinkCreator.ForeColor = Color.FromArgb(255, 255, 192);
-            labelSilverlinkCreator.Location = new Point(289, 0);
+            labelSilverlinkCreator.Location = new Point(309, 0);
             labelSilverlinkCreator.Name = "labelSilverlinkCreator";
             labelSilverlinkCreator.Size = new Size(91, 40);
             labelSilverlinkCreator.TabIndex = 3;
@@ -684,7 +877,7 @@
             panelSpacer1.Dock = DockStyle.Top;
             panelSpacer1.Location = new Point(0, 220);
             panelSpacer1.Name = "panelSpacer1";
-            panelSpacer1.Size = new Size(392, 10);
+            panelSpacer1.Size = new Size(412, 10);
             panelSpacer1.TabIndex = 4;
             // 
             // panelStreamUP
@@ -697,7 +890,7 @@
             panelStreamUP.Dock = DockStyle.Top;
             panelStreamUP.Location = new Point(0, 100);
             panelStreamUP.Name = "panelStreamUP";
-            panelStreamUP.Size = new Size(392, 120);
+            panelStreamUP.Size = new Size(412, 120);
             panelStreamUP.TabIndex = 5;
             // 
             // panelStreamUPLinks2
@@ -709,7 +902,7 @@
             panelStreamUPLinks2.Dock = DockStyle.Top;
             panelStreamUPLinks2.Location = new Point(12, 80);
             panelStreamUPLinks2.Name = "panelStreamUPLinks2";
-            panelStreamUPLinks2.Size = new Size(380, 40);
+            panelStreamUPLinks2.Size = new Size(400, 40);
             panelStreamUPLinks2.TabIndex = 3;
             // 
             // linkLabelStreamUPTwitch
@@ -717,9 +910,9 @@
             linkLabelStreamUPTwitch.Dock = DockStyle.Left;
             linkLabelStreamUPTwitch.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             linkLabelStreamUPTwitch.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelStreamUPTwitch.Location = new Point(255, 0);
+            linkLabelStreamUPTwitch.Location = new Point(265, 0);
             linkLabelStreamUPTwitch.Name = "linkLabelStreamUPTwitch";
-            linkLabelStreamUPTwitch.Size = new Size(125, 40);
+            linkLabelStreamUPTwitch.Size = new Size(135, 40);
             linkLabelStreamUPTwitch.TabIndex = 10;
             linkLabelStreamUPTwitch.TabStop = true;
             linkLabelStreamUPTwitch.Text = "StreamUPTips";
@@ -730,7 +923,7 @@
             // 
             pictureBoxStreamUPTwitch.Dock = DockStyle.Left;
             pictureBoxStreamUPTwitch.Image = Properties.Resources.AboutWindowTwitch;
-            pictureBoxStreamUPTwitch.Location = new Point(190, 0);
+            pictureBoxStreamUPTwitch.Location = new Point(200, 0);
             pictureBoxStreamUPTwitch.Margin = new Padding(10);
             pictureBoxStreamUPTwitch.Name = "pictureBoxStreamUPTwitch";
             pictureBoxStreamUPTwitch.Padding = new Padding(10);
@@ -746,7 +939,7 @@
             linkLabelStreamUPYoutube.LinkColor = Color.FromArgb(192, 255, 255);
             linkLabelStreamUPYoutube.Location = new Point(65, 0);
             linkLabelStreamUPYoutube.Name = "linkLabelStreamUPYoutube";
-            linkLabelStreamUPYoutube.Size = new Size(125, 40);
+            linkLabelStreamUPYoutube.Size = new Size(135, 40);
             linkLabelStreamUPYoutube.TabIndex = 8;
             linkLabelStreamUPYoutube.TabStop = true;
             linkLabelStreamUPYoutube.Text = "@StreamUPTips";
@@ -773,7 +966,7 @@
             panelStreamUPLinks1.Dock = DockStyle.Top;
             panelStreamUPLinks1.Location = new Point(12, 40);
             panelStreamUPLinks1.Name = "panelStreamUPLinks1";
-            panelStreamUPLinks1.Size = new Size(380, 40);
+            panelStreamUPLinks1.Size = new Size(400, 40);
             panelStreamUPLinks1.TabIndex = 2;
             // 
             // linkLabelSUPatreon
@@ -781,9 +974,9 @@
             linkLabelSUPatreon.Dock = DockStyle.Left;
             linkLabelSUPatreon.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             linkLabelSUPatreon.LinkColor = Color.FromArgb(192, 255, 255);
-            linkLabelSUPatreon.Location = new Point(255, 0);
+            linkLabelSUPatreon.Location = new Point(265, 0);
             linkLabelSUPatreon.Name = "linkLabelSUPatreon";
-            linkLabelSUPatreon.Size = new Size(125, 40);
+            linkLabelSUPatreon.Size = new Size(135, 40);
             linkLabelSUPatreon.TabIndex = 9;
             linkLabelSUPatreon.TabStop = true;
             linkLabelSUPatreon.Text = "Patreon";
@@ -794,7 +987,7 @@
             // 
             pictureBoxStreamUPPatreon.Dock = DockStyle.Left;
             pictureBoxStreamUPPatreon.Image = Properties.Resources.AboutWindowPatreon;
-            pictureBoxStreamUPPatreon.Location = new Point(190, 0);
+            pictureBoxStreamUPPatreon.Location = new Point(200, 0);
             pictureBoxStreamUPPatreon.Name = "pictureBoxStreamUPPatreon";
             pictureBoxStreamUPPatreon.Size = new Size(65, 40);
             pictureBoxStreamUPPatreon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -808,7 +1001,7 @@
             linkLabelSUKofi.LinkColor = Color.FromArgb(192, 255, 255);
             linkLabelSUKofi.Location = new Point(65, 0);
             linkLabelSUKofi.Name = "linkLabelSUKofi";
-            linkLabelSUKofi.Size = new Size(125, 40);
+            linkLabelSUKofi.Size = new Size(135, 40);
             linkLabelSUKofi.TabIndex = 7;
             linkLabelSUKofi.TabStop = true;
             linkLabelSUKofi.Text = "Ko-Fi";
@@ -833,7 +1026,7 @@
             panelStreamUPHeader.Dock = DockStyle.Top;
             panelStreamUPHeader.Location = new Point(12, 0);
             panelStreamUPHeader.Name = "panelStreamUPHeader";
-            panelStreamUPHeader.Size = new Size(380, 40);
+            panelStreamUPHeader.Size = new Size(400, 40);
             panelStreamUPHeader.TabIndex = 1;
             // 
             // labelStreamUP
@@ -859,18 +1052,30 @@
             // panelRight
             // 
             panelRight.BackColor = Color.FromArgb(40, 46, 92);
+            panelRight.Controls.Add(pictureBoxLove);
             panelRight.Dock = DockStyle.Left;
-            panelRight.Location = new Point(392, 0);
+            panelRight.Location = new Point(412, 0);
             panelRight.Name = "panelRight";
-            panelRight.Size = new Size(392, 850);
+            panelRight.Size = new Size(412, 736);
             panelRight.TabIndex = 2;
+            // 
+            // pictureBoxLove
+            // 
+            pictureBoxLove.Dock = DockStyle.Fill;
+            pictureBoxLove.Image = Properties.Resources.AboutWindowLove;
+            pictureBoxLove.Location = new Point(0, 0);
+            pictureBoxLove.Name = "pictureBoxLove";
+            pictureBoxLove.Size = new Size(412, 736);
+            pictureBoxLove.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBoxLove.TabIndex = 0;
+            pictureBoxLove.TabStop = false;
             // 
             // AboutWindow
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 23, 45);
-            ClientSize = new Size(784, 850);
+            ClientSize = new Size(824, 736);
             Controls.Add(panelRight);
             Controls.Add(panelLeft);
             Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -887,15 +1092,22 @@
             Load += AboutWindow_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxPluginstallerLogo).EndInit();
             panelLeft.ResumeLayout(false);
+            panelWaldo.ResumeLayout(false);
+            panelWaldoLinks3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoThrone).EndInit();
+            panelWaldoLinks2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoTikTok).EndInit();
+            panelWaldoLinks1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoYoutube).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxWaldoTwitch).EndInit();
+            panelWaldoHeader.ResumeLayout(false);
             panelAndilippi.ResumeLayout(false);
-            panelAndilippiLinks4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiMoreLinks).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiPatreon).EndInit();
             panelAndilippiLinks3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiKoFi).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiThrone).EndInit();
             panelAndilippiLinks2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiX).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiTikTok).EndInit();
             panelAndilippiLinks1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxAndilippiYoutube).EndInit();
@@ -919,6 +1131,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPPatreon).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPKoFi).EndInit();
             panelStreamUPHeader.ResumeLayout(false);
+            panelRight.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLove).EndInit();
             ResumeLayout(false);
         }
 
@@ -937,13 +1151,11 @@
         private LinkLabel linkLabelSilverlinkYoutube;
         private PictureBox pictureBoxSilverlinkYT;
         private PictureBox pictureBoxSilverlinkTikTok;
-        private LinkLabel linkLabelTikTokitsSilverlink;
         private Panel panelStreamUP;
         private Panel panelSpacer1;
         private Panel panelStreamUPHeader;
         private Panel panelStreamUPColorHighlight;
         private Panel panelStreamUPLinks1;
-        private PictureBox pictureBoxSUKoFi;
         private LinkLabel linkLabelSUKofi;
         private LinkLabel linkLabelSUPatreon;
         private PictureBox pictureBoxStreamUPPatreon;
@@ -964,11 +1176,7 @@
         private PictureBox pictureBoxSilverlinkThrone;
         private Panel panelAndilippi;
         private Panel panelAndilippiLinks3;
-        private LinkLabel linkLabelAndilippiThrone;
-        private PictureBox pictureBoxAndilippiThrone;
         private Panel panelAndilippiLinks2;
-        private LinkLabel linkLabelAndilippiX;
-        private PictureBox pictureBoxAndilippiX;
         private LinkLabel linkLabelAndilippiTikTok;
         private PictureBox pictureBoxAndilippiTikTok;
         private Panel panelAndilippiLinks1;
@@ -980,7 +1188,6 @@
         private Label labelAndilippi;
         private Label labelAndilippiFounder;
         private Panel panelAndilippiColorHightlight;
-        private Panel panelAndilippiLinks4;
         private PictureBox pictureBoxAndilippiPatreon;
         private PictureBox pictureBoxAndilippiKoFi;
         private PictureBox pictureBoxAndilippiMoreLinks;
@@ -989,5 +1196,26 @@
         private LinkLabel linkLabelAndilippiAllTheLinks;
         private LinkLabel linkLabelSilverlinkTikTok;
         private PictureBox pictureBoxStreamUPKoFi;
+        private Panel panelWaldo;
+        private Panel panelWaldoLinks3;
+        private LinkLabel linkLabelWaldoThrone;
+        private PictureBox pictureBoxWaldoThrone;
+        private Panel panelWaldoLinks2;
+        private LinkLabel linkLabelWaldoX;
+        private PictureBox pictureBoxWaldoX;
+        private LinkLabel linkLabelWaldoTikTok;
+        private PictureBox pictureBoxWaldoTikTok;
+        private Panel panelWaldoLinks1;
+        private LinkLabel linkLabelWaldoYoutube;
+        private PictureBox pictureBoxWaldoYoutube;
+        private LinkLabel linkLabelWaldoTwitch;
+        private PictureBox pictureBoxWaldoTwitch;
+        private Panel panelWaldoHeader;
+        private Label labelWaldo;
+        private Label labelWaldoFounder;
+        private Panel panelWaldoColorHighlight;
+        private Panel panelSpacer3;
+        private Panel panelSpacer4;
+        private PictureBox pictureBoxLove;
     }
 }

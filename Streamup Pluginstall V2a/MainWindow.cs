@@ -59,7 +59,7 @@ namespace Streamup_Pluginstall_V2 {
             labelVersion.Text = $"Checking for updates - {currentVersion}";
             try {
                 using HttpClient client = new HttpClient();
-                var result = await client.GetAsync("https://gist.githubusercontent.com/itsSilverlink/960e49255a3aebbd63c44f55d5fcf9eb/raw/pluginstaller.txt");
+                var result = await client.GetAsync("https://api.streamup.tips/product/version/cc36e210-7a86-49b0-a58d-557c712a6687");
                 var onlineVersion = await result.Content.ReadAsStringAsync();
                 int.TryParse(onlineVersion.Replace(".", ""), out int onlineVersionNumbers);
                 if (onlineVersionNumbers > currentVersionNumber) {
@@ -115,7 +115,7 @@ namespace Streamup_Pluginstall_V2 {
                 MessageBox.Show("Cannot connect to StreamUP API, Make sure you are connected to the internet", "Uh oh", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 Environment.Exit(1);
             }
-            
+
             parsedJson = JObject.Parse(pluginList);
 
             JArray? plugins = parsedJson["plugins"] as JArray;
@@ -186,6 +186,11 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private void radioButtonCustom_CheckedChanged(object sender, EventArgs e) {
+            if (radioButtonCustom.Checked) {
+                buttonClearSelection.Enabled = true;
+            } else {
+                buttonClearSelection.Enabled = false;
+            }
 
         }
 
@@ -193,7 +198,7 @@ namespace Streamup_Pluginstall_V2 {
             if (radioButtonOutdated.Checked) {
                 var outOfDateOBSPluginsList = File.ReadAllLines(outOfDateOBSPlugins);
                 SetCheckedPlugins(outOfDateOBSPluginsList);
-            }            
+            }
         }
 
         Plugin SetPluginData(JToken pluginObject) {
@@ -439,7 +444,7 @@ Thank you for using the Pluginstaller by StreamUP";
             var backupTask = Task.Run(() => {
                 ZipFile.CreateFromDirectory(obsPath, backupPathComplete);
             });
-            
+
             AddTextToLog(@"Creating backup!");
             while (!backupTask.IsCompleted) {
                 try {
@@ -449,7 +454,7 @@ Thank you for using the Pluginstaller by StreamUP";
                     await Task.Delay(1000);
                 } catch (Exception) {
                     continue;
-                }               
+                }
             }
 
             FileInfo fileInfo = new FileInfo(backupPathComplete);
@@ -485,7 +490,9 @@ Thank you for using the Pluginstaller by StreamUP";
         }
 
         private async void buttonExpand_Click(object sender, EventArgs e) {
-            
+            // Test button
+            AboutWindow aboutWindow = new AboutWindow();
+            aboutWindow.ShowDialog();
         }
 
         private void CopyFolder(string sourceFolder, string destinationFolder) {
@@ -732,34 +739,44 @@ If you click No you can select a different location where you can download the O
             radioButtonCustom.Checked = true;
         }
 
-        static long GetFolderSize (string directoryPath, bool includeSubDirectories) {
+        static long GetFolderSize(string directoryPath, bool includeSubDirectories) {
             long totalSize;
             DirectoryInfo directoryInfo = new DirectoryInfo(directoryPath);
 
-            totalSize = directoryInfo.EnumerateFiles().Sum((file) =>  file.Length);
+            totalSize = directoryInfo.EnumerateFiles().Sum((file) => file.Length);
             if (includeSubDirectories) {
                 totalSize += directoryInfo.EnumerateDirectories().Sum((directory) => GetFolderSize(directory.FullName, true));
             }
             return totalSize;
         }
 
-        static double ConvertToMegaBytes (long size) {
+        static double ConvertToMegaBytes(long size) {
             return Math.Ceiling(((double)size) / (1024 * 1024) * 100) / 100;
         }
 
         private void PluginListCheck(object sender, FileSystemEventArgs e) {
             if (e.ChangeType == WatcherChangeTypes.Created) {
                 Invoke(new Action(() => {
-                    radioButtonOutdated.Visible = true;
+                    radioButtonOutdated.Enabled = true;
                 }));
             } else if (e.ChangeType == WatcherChangeTypes.Deleted) {
                 Invoke(new Action(() => {
-                    radioButtonOutdated.Visible = false;
+                    radioButtonOutdated.Enabled = false;
                     radioButtonRequired.Select();
                 }));
             }
         }
 
+        private void buttonAbout_Click(object sender, EventArgs e) {
+            AboutWindow aboutWindow = new AboutWindow();
+            aboutWindow.ShowDialog();
+        }
+
+        private void buttonClearSelection_Click(object sender, EventArgs e) {
+            for (int i = 0; i < checkedListBoxPlugins.Items.Count; i++) {
+                checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
     }
 
     class Plugin {

@@ -24,19 +24,13 @@
         /// </summary>
         private void InitializeComponent() {
             checkedListBoxPlugins = new CheckedListBox();
-            radioButtonRecommended = new RadioButton();
-            radioButtonRequired = new RadioButton();
-            radioButtonRequiredAndRecommended = new RadioButton();
-            radioButtonAll = new RadioButton();
             buttonSaveFolder = new Button();
             textBoxSaveLocation = new TextBox();
             buttonDownload = new Button();
-            radioButtonCustom = new RadioButton();
             buttonTest = new Button();
             checkBoxExtract = new CheckBox();
             checkBoxOpenUrlsOnly = new CheckBox();
             buttonOpenFolder = new Button();
-            radioButtonOutdated = new RadioButton();
             buttonUnZIP = new Button();
             pictureBoxStreamUPLogo = new PictureBox();
             panelTextBoxSaveLocation = new Panel();
@@ -49,6 +43,14 @@
             labelVersion = new Label();
             richTextBoxLog = new RichTextBox();
             panelRichTextBox = new Panel();
+            buttonClearSelection = new Button();
+            buttonAbout = new Button();
+            radioButtonRequired = new Custom_Controls.RadioButtonFlat();
+            radioButtonRecommended = new Custom_Controls.RadioButtonFlat();
+            radioButtonRequiredAndRecommended = new Custom_Controls.RadioButtonFlat();
+            radioButtonAll = new Custom_Controls.RadioButtonFlat();
+            radioButtonCustom = new Custom_Controls.RadioButtonFlat();
+            radioButtonOutdated = new Custom_Controls.RadioButtonFlat();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPLogo).BeginInit();
             panelTextBoxSaveLocation.SuspendLayout();
             panelCheckedListBoxPlugins.SuspendLayout();
@@ -71,56 +73,6 @@
             checkedListBoxPlugins.TabIndex = 0;
             checkedListBoxPlugins.ThreeDCheckBoxes = true;
             checkedListBoxPlugins.MouseClick += checkedListBoxPlugins_MouseClick;
-            // 
-            // radioButtonRecommended
-            // 
-            radioButtonRecommended.AutoSize = true;
-            radioButtonRecommended.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonRecommended.Location = new Point(12, 109);
-            radioButtonRecommended.Name = "radioButtonRecommended";
-            radioButtonRecommended.Size = new Size(196, 25);
-            radioButtonRecommended.TabIndex = 4;
-            radioButtonRecommended.Text = "Recommended Plugins";
-            radioButtonRecommended.UseVisualStyleBackColor = true;
-            radioButtonRecommended.CheckedChanged += radioButtonRecommended_CheckedChanged;
-            // 
-            // radioButtonRequired
-            // 
-            radioButtonRequired.AutoSize = true;
-            radioButtonRequired.Checked = true;
-            radioButtonRequired.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonRequired.Location = new Point(12, 78);
-            radioButtonRequired.Name = "radioButtonRequired";
-            radioButtonRequired.Size = new Size(151, 25);
-            radioButtonRequired.TabIndex = 5;
-            radioButtonRequired.TabStop = true;
-            radioButtonRequired.Text = "Required Plugins";
-            radioButtonRequired.UseVisualStyleBackColor = true;
-            radioButtonRequired.CheckedChanged += radioButtonRequired_CheckedChanged;
-            // 
-            // radioButtonRequiredAndRecommended
-            // 
-            radioButtonRequiredAndRecommended.AutoSize = true;
-            radioButtonRequiredAndRecommended.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonRequiredAndRecommended.Location = new Point(12, 140);
-            radioButtonRequiredAndRecommended.Name = "radioButtonRequiredAndRecommended";
-            radioButtonRequiredAndRecommended.Size = new Size(298, 25);
-            radioButtonRequiredAndRecommended.TabIndex = 6;
-            radioButtonRequiredAndRecommended.Text = "Required and Recommended Plugins";
-            radioButtonRequiredAndRecommended.UseVisualStyleBackColor = true;
-            radioButtonRequiredAndRecommended.CheckedChanged += radioButtonRequiredRecommended_CheckedChanged;
-            // 
-            // radioButtonAll
-            // 
-            radioButtonAll.AutoSize = true;
-            radioButtonAll.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonAll.Location = new Point(357, 78);
-            radioButtonAll.Name = "radioButtonAll";
-            radioButtonAll.Size = new Size(103, 25);
-            radioButtonAll.TabIndex = 7;
-            radioButtonAll.Text = "All Plugins";
-            radioButtonAll.UseVisualStyleBackColor = true;
-            radioButtonAll.CheckedChanged += radioButtonAll_CheckedChanged;
             // 
             // buttonSaveFolder
             // 
@@ -167,30 +119,19 @@
             buttonDownload.UseVisualStyleBackColor = false;
             buttonDownload.Click += buttonDownload_Click;
             // 
-            // radioButtonCustom
-            // 
-            radioButtonCustom.AutoSize = true;
-            radioButtonCustom.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonCustom.Location = new Point(357, 109);
-            radioButtonCustom.Name = "radioButtonCustom";
-            radioButtonCustom.Size = new Size(84, 25);
-            radioButtonCustom.TabIndex = 10;
-            radioButtonCustom.Text = "Custom";
-            radioButtonCustom.UseVisualStyleBackColor = true;
-            radioButtonCustom.CheckedChanged += radioButtonCustom_CheckedChanged;
-            // 
             // buttonTest
             // 
             buttonTest.BackColor = Color.FromArgb(66, 67, 86);
             buttonTest.Enabled = false;
             buttonTest.FlatAppearance.BorderSize = 0;
             buttonTest.FlatStyle = FlatStyle.Flat;
-            buttonTest.Location = new Point(759, 78);
+            buttonTest.Location = new Point(799, 78);
             buttonTest.Name = "buttonTest";
             buttonTest.Size = new Size(120, 51);
             buttonTest.TabIndex = 12;
             buttonTest.Text = "Disabled for Andilippi";
             buttonTest.UseVisualStyleBackColor = false;
+            buttonTest.Visible = false;
             buttonTest.Click += buttonExpand_Click;
             // 
             // checkBoxExtract
@@ -236,29 +177,15 @@
             buttonOpenFolder.UseVisualStyleBackColor = false;
             buttonOpenFolder.Click += buttonOpenFolder_Click;
             // 
-            // radioButtonOutdated
-            // 
-            radioButtonOutdated.AutoSize = true;
-            radioButtonOutdated.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonOutdated.ForeColor = Color.White;
-            radioButtonOutdated.Location = new Point(357, 140);
-            radioButtonOutdated.Name = "radioButtonOutdated";
-            radioButtonOutdated.Size = new Size(98, 25);
-            radioButtonOutdated.TabIndex = 16;
-            radioButtonOutdated.Text = "Outdated";
-            radioButtonOutdated.UseVisualStyleBackColor = false;
-            radioButtonOutdated.Visible = false;
-            radioButtonOutdated.CheckedChanged += radioButtonOutdated_CheckedChanged;
-            // 
             // buttonUnZIP
             // 
             buttonUnZIP.BackColor = Color.FromArgb(66, 67, 86);
             buttonUnZIP.Enabled = false;
             buttonUnZIP.FlatAppearance.BorderSize = 0;
             buttonUnZIP.FlatStyle = FlatStyle.Flat;
-            buttonUnZIP.Location = new Point(759, 137);
+            buttonUnZIP.Location = new Point(604, 142);
             buttonUnZIP.Name = "buttonUnZIP";
-            buttonUnZIP.Size = new Size(120, 23);
+            buttonUnZIP.Size = new Size(125, 25);
             buttonUnZIP.TabIndex = 17;
             buttonUnZIP.Text = "Unzip Current Files";
             buttonUnZIP.UseVisualStyleBackColor = false;
@@ -355,7 +282,7 @@
             // 
             labelVersion.Location = new Point(622, 9);
             labelVersion.Name = "labelVersion";
-            labelVersion.Size = new Size(308, 15);
+            labelVersion.Size = new Size(260, 15);
             labelVersion.TabIndex = 28;
             labelVersion.Text = "2.0.0";
             labelVersion.TextAlign = ContentAlignment.MiddleRight;
@@ -367,7 +294,6 @@
             richTextBoxLog.BorderStyle = BorderStyle.None;
             richTextBoxLog.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             richTextBoxLog.ForeColor = Color.White;
-            richTextBoxLog.HideSelection = false;
             richTextBoxLog.Location = new Point(5, 0);
             richTextBoxLog.Name = "richTextBoxLog";
             richTextBoxLog.ReadOnly = true;
@@ -386,12 +312,143 @@
             panelRichTextBox.Size = new Size(448, 432);
             panelRichTextBox.TabIndex = 30;
             // 
+            // buttonClearSelection
+            // 
+            buttonClearSelection.BackColor = Color.FromArgb(66, 67, 86);
+            buttonClearSelection.Enabled = false;
+            buttonClearSelection.FlatAppearance.BorderSize = 0;
+            buttonClearSelection.FlatStyle = FlatStyle.Flat;
+            buttonClearSelection.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonClearSelection.Location = new Point(473, 142);
+            buttonClearSelection.Name = "buttonClearSelection";
+            buttonClearSelection.Size = new Size(125, 25);
+            buttonClearSelection.TabIndex = 32;
+            buttonClearSelection.Text = "Clear Selection";
+            buttonClearSelection.UseVisualStyleBackColor = false;
+            buttonClearSelection.Click += buttonClearSelection_Click;
+            // 
+            // buttonAbout
+            // 
+            buttonAbout.BackgroundImage = Properties.Resources.AboutButton;
+            buttonAbout.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonAbout.FlatAppearance.BorderSize = 0;
+            buttonAbout.FlatAppearance.MouseOverBackColor = Color.FromArgb(40, 43, 65);
+            buttonAbout.FlatStyle = FlatStyle.Flat;
+            buttonAbout.Location = new Point(888, 9);
+            buttonAbout.Name = "buttonAbout";
+            buttonAbout.Size = new Size(31, 31);
+            buttonAbout.TabIndex = 31;
+            buttonAbout.TextAlign = ContentAlignment.BottomCenter;
+            buttonAbout.UseVisualStyleBackColor = true;
+            buttonAbout.Click += buttonAbout_Click;
+            // 
+            // radioButtonRequired
+            // 
+            radioButtonRequired.AutoSize = true;
+            radioButtonRequired.Checked = true;
+            radioButtonRequired.CheckedColor = Color.WhiteSmoke;
+            radioButtonRequired.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radioButtonRequired.Location = new Point(12, 78);
+            radioButtonRequired.MinimumSize = new Size(0, 21);
+            radioButtonRequired.Name = "radioButtonRequired";
+            radioButtonRequired.Size = new Size(163, 25);
+            radioButtonRequired.TabIndex = 33;
+            radioButtonRequired.TabStop = true;
+            radioButtonRequired.Text = "Required Plugins";
+            radioButtonRequired.UncheckedColor = Color.Gray;
+            radioButtonRequired.UseVisualStyleBackColor = true;
+            radioButtonRequired.CheckedChanged += radioButtonRequired_CheckedChanged;
+            // 
+            // radioButtonRecommended
+            // 
+            radioButtonRecommended.AutoSize = true;
+            radioButtonRecommended.CheckedColor = Color.WhiteSmoke;
+            radioButtonRecommended.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radioButtonRecommended.Location = new Point(12, 109);
+            radioButtonRecommended.MinimumSize = new Size(0, 21);
+            radioButtonRecommended.Name = "radioButtonRecommended";
+            radioButtonRecommended.Size = new Size(208, 25);
+            radioButtonRecommended.TabIndex = 33;
+            radioButtonRecommended.Text = "Recommended Plugins";
+            radioButtonRecommended.UncheckedColor = Color.Gray;
+            radioButtonRecommended.UseVisualStyleBackColor = true;
+            radioButtonRecommended.CheckedChanged += radioButtonRecommended_CheckedChanged;
+            // 
+            // radioButtonRequiredAndRecommended
+            // 
+            radioButtonRequiredAndRecommended.AutoSize = true;
+            radioButtonRequiredAndRecommended.CheckedColor = Color.WhiteSmoke;
+            radioButtonRequiredAndRecommended.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radioButtonRequiredAndRecommended.Location = new Point(12, 140);
+            radioButtonRequiredAndRecommended.MinimumSize = new Size(0, 21);
+            radioButtonRequiredAndRecommended.Name = "radioButtonRequiredAndRecommended";
+            radioButtonRequiredAndRecommended.Size = new Size(310, 25);
+            radioButtonRequiredAndRecommended.TabIndex = 33;
+            radioButtonRequiredAndRecommended.Text = "Required and Recommended Plugins";
+            radioButtonRequiredAndRecommended.UncheckedColor = Color.Gray;
+            radioButtonRequiredAndRecommended.UseVisualStyleBackColor = true;
+            radioButtonRequiredAndRecommended.CheckedChanged += radioButtonRequiredRecommended_CheckedChanged;
+            // 
+            // radioButtonAll
+            // 
+            radioButtonAll.AutoSize = true;
+            radioButtonAll.CheckedColor = Color.WhiteSmoke;
+            radioButtonAll.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radioButtonAll.Location = new Point(345, 78);
+            radioButtonAll.MinimumSize = new Size(0, 21);
+            radioButtonAll.Name = "radioButtonAll";
+            radioButtonAll.Size = new Size(115, 25);
+            radioButtonAll.TabIndex = 33;
+            radioButtonAll.Text = "All Plugins";
+            radioButtonAll.UncheckedColor = Color.Gray;
+            radioButtonAll.UseVisualStyleBackColor = true;
+            radioButtonAll.CheckedChanged += radioButtonAll_CheckedChanged;
+            // 
+            // radioButtonCustom
+            // 
+            radioButtonCustom.AutoSize = true;
+            radioButtonCustom.CheckedColor = Color.WhiteSmoke;
+            radioButtonCustom.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radioButtonCustom.Location = new Point(345, 140);
+            radioButtonCustom.MinimumSize = new Size(0, 21);
+            radioButtonCustom.Name = "radioButtonCustom";
+            radioButtonCustom.Size = new Size(96, 25);
+            radioButtonCustom.TabIndex = 33;
+            radioButtonCustom.Text = "Custom";
+            radioButtonCustom.UncheckedColor = Color.Gray;
+            radioButtonCustom.UseVisualStyleBackColor = true;
+            radioButtonCustom.CheckedChanged += radioButtonCustom_CheckedChanged;
+            // 
+            // radioButtonOutdated
+            // 
+            radioButtonOutdated.AutoSize = true;
+            radioButtonOutdated.CheckedColor = Color.WhiteSmoke;
+            radioButtonOutdated.Enabled = false;
+            radioButtonOutdated.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radioButtonOutdated.Location = new Point(345, 109);
+            radioButtonOutdated.MinimumSize = new Size(0, 21);
+            radioButtonOutdated.Name = "radioButtonOutdated";
+            radioButtonOutdated.Size = new Size(110, 25);
+            radioButtonOutdated.TabIndex = 33;
+            radioButtonOutdated.Text = "Outdated";
+            radioButtonOutdated.UncheckedColor = Color.Gray;
+            radioButtonOutdated.UseVisualStyleBackColor = true;
+            radioButtonOutdated.CheckedChanged += radioButtonOutdated_CheckedChanged;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 23, 45);
             ClientSize = new Size(932, 663);
+            Controls.Add(buttonClearSelection);
+            Controls.Add(radioButtonOutdated);
+            Controls.Add(radioButtonCustom);
+            Controls.Add(radioButtonAll);
+            Controls.Add(radioButtonRequiredAndRecommended);
+            Controls.Add(radioButtonRecommended);
+            Controls.Add(radioButtonRequired);
+            Controls.Add(buttonAbout);
             Controls.Add(progressBarDownload);
             Controls.Add(panelRichTextBox);
             Controls.Add(labelVersion);
@@ -405,15 +462,9 @@
             Controls.Add(panelTextBoxSaveLocation);
             Controls.Add(buttonSaveFolder);
             Controls.Add(buttonUnZIP);
-            Controls.Add(radioButtonOutdated);
             Controls.Add(checkBoxOpenUrlsOnly);
             Controls.Add(checkBoxExtract);
             Controls.Add(buttonTest);
-            Controls.Add(radioButtonCustom);
-            Controls.Add(radioButtonAll);
-            Controls.Add(radioButtonRequiredAndRecommended);
-            Controls.Add(radioButtonRequired);
-            Controls.Add(radioButtonRecommended);
             Controls.Add(pictureBoxStreamUPLogo);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -434,20 +485,14 @@
         }
 
         #endregion
-        private RadioButton radioButtonRecommended;
-        private RadioButton radioButtonRequired;
-        private RadioButton radioButtonRequiredAndRecommended;
-        private RadioButton radioButtonAll;
         private CheckedListBox checkedListBoxPlugins;
         private TextBox textBoxSaveLocation;
         private Button buttonSaveFolder;
         private Button buttonDownload;
-        private RadioButton radioButtonCustom;
         private Button buttonTest;
         private CheckBox checkBoxExtract;
         private CheckBox checkBoxOpenUrlsOnly;
         private Button buttonOpenFolder;
-        private RadioButton radioButtonOutdated;
         private Button buttonUnZIP;
         private PictureBox pictureBoxStreamUPLogo;
         private Panel panelTextBoxSaveLocation;
@@ -460,5 +505,13 @@
         private Label labelVersion;
         private RichTextBox richTextBoxLog;
         private Panel panelRichTextBox;
+        private Button buttonAbout;
+        private Button buttonClearSelection;
+        private Custom_Controls.RadioButtonFlat radioButtonRequired;
+        private Custom_Controls.RadioButtonFlat radioButtonRecommended;
+        private Custom_Controls.RadioButtonFlat radioButtonRequiredAndRecommended;
+        private Custom_Controls.RadioButtonFlat radioButtonAll;
+        private Custom_Controls.RadioButtonFlat radioButtonCustom;
+        private Custom_Controls.RadioButtonFlat radioButtonOutdated;
     }
 }

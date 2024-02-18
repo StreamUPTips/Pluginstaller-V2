@@ -47,6 +47,9 @@ namespace Streamup_Pluginstall_V2.Custom_Controls {
             using (Pen penBorder = new Pen(CheckedColor, 1.6F))
             using (SolidBrush brushRbCheck = new SolidBrush(checkedColor))
             using (SolidBrush brushText = new SolidBrush(this.ForeColor)) {
+
+                SolidBrush textColor = brushText;
+
                 graphics.Clear(this.BackColor);
                 if (this.Checked) {
                     graphics.DrawEllipse(penBorder, rectRbBorder); // Circle Border
@@ -55,7 +58,12 @@ namespace Streamup_Pluginstall_V2.Custom_Controls {
                     penBorder.Color = uncheckedColor;
                     graphics.DrawEllipse(penBorder, rectRbBorder); // Circle Border
                 }
-                graphics.DrawString(this.Text, this.Font, brushText, rbBorderSize + 8, (this.Height - TextRenderer.MeasureText(this.Text, this.Font).Height) / 2);
+
+                if (this.Enabled == false) {
+                    textColor = new SolidBrush(Color.DimGray);
+                }
+
+                graphics.DrawString(this.Text, this.Font, textColor, rbBorderSize + 8, (this.Height - TextRenderer.MeasureText(this.Text, this.Font).Height) / 2);
             };
         }
 

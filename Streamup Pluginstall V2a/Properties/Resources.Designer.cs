@@ -63,9 +63,29 @@ namespace Streamup_Pluginstall_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AboutButton {
+            get {
+                object obj = ResourceManager.GetObject("AboutButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AboutWindowKoFi {
             get {
                 object obj = ResourceManager.GetObject("AboutWindowKoFi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AboutWindowLove {
+            get {
+                object obj = ResourceManager.GetObject("AboutWindowLove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

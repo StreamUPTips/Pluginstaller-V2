@@ -99,7 +99,7 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private void linkLabelAndilippiAllTheLinks_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://doras.to/andilippi");
+            openURL("https://doras.to/andilippi");            
         }
     }
 }
