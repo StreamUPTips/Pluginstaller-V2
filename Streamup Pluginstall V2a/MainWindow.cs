@@ -164,6 +164,7 @@ namespace Streamup_Pluginstall_V2 {
 
             if (File.Exists(outOfDateOBSPlugins)) {
                 radioButtonOutdated.Enabled = true;
+                hasOutDatedFile = true;
             }
         }
 
