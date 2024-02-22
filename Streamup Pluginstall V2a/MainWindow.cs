@@ -222,6 +222,8 @@ namespace Streamup_Pluginstall_V2 {
             DialogResult result = folderDialogResult.ShowDialog();
             if (result != DialogResult.OK) {
                 textBoxSaveLocation.Text = appFolder;
+                checkBoxExtract.Enabled = true;
+                Properties.Settings.Default["saveLocation"] = appFolder;
                 SetOBSSettings();
                 return;
             }
