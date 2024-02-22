@@ -173,6 +173,16 @@ namespace Streamup_Pluginstall_V2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Doras_Small {
+            get {
+                object obj = ResourceManager.GetObject("Doras_Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Download {
             get {
                 object obj = ResourceManager.GetObject("Download", resourceCulture);

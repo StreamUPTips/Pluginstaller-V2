@@ -34,26 +34,6 @@ namespace Streamup_Pluginstall_V2 {
             openURL("https://twitch.tv/silverlink");
         }
 
-        private void linkLabelYTItsSilverlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://youtube.com/@itsSilverlink");
-        }
-
-        private void linkLabelTTitsSilverlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://tiktok.com/@itsSilverlink");
-        }
-
-        private void linkLabelSilverlinkX_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://twitter.com/itsSilverlink");
-        }
-
-        private void linkLabelThrone_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://throne.com/silverlink");
-        }
-
-        private void linkLabelSilverlinkTikTok_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://tiktok.com/@itsSilverlink");
-        }
-
         private void linkLabelSUKofi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             openURL("https://ko-fi.com/streamup");
         }
@@ -74,32 +54,20 @@ namespace Streamup_Pluginstall_V2 {
             openURL("https://twitch.tv/andilippi");
         }
 
-        private void linkLabelAndilippiYoutube_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://youtube.com/@andilippi");
+        private void linkLabelSilverlinkDoras_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            openURL("https://doras.to/silverlink");
         }
 
-        private void linkLabelAndilippiTikTok_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://tiktok.com/@andilippi");
+        private void linkLabelAndilippiDoras_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            openURL("https://doras.to/andilippi");
         }
 
-        private void linkLabelAndilippiX_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://x.com/andi_stone");
+        private void linkLabelWaldoDoras_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            openURL("https://doras.to/waldo");
         }
 
-        private void linkLabelAndilippiThrone_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://throne.com/andilippi");
-        }
-
-        private void linkLabelAndilippiKoFi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://ko-fi.com/andilippi");
-        }
-
-        private void linkLabelAndilippiPatreon_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://patreon.com/andilippi");
-        }
-
-        private void linkLabelAndilippiAllTheLinks_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            openURL("https://doras.to/andilippi");            
+        private void linkLabelWaldoTwitch_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            openURL("https://twitch.tv/waldoandfriends");
         }
     }
 }

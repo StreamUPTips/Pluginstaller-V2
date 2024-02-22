@@ -520,23 +520,7 @@ Thank you for using the Pluginstaller by StreamUP";
         private async void buttonExpand_Click(object sender, EventArgs e) {
             // Test button
             // AboutWindow aboutWindow = new AboutWindow();
-            //aboutWindow.ShowDialog();
-
-            string mode = "enable";
-
-            var radioButtons = this.Controls.OfType<RadioButtonFlat>();
-
-            foreach (var radioButton in radioButtons) {
-                if (mode == "enable") {
-                    if (radioButton.Name == "radioButtonOutdated") {
-                        radioButton.Enabled = hasOutDatedFile;
-                    } else {
-                        radioButton.Enabled = true;
-                    }
-                } else if (mode == "disable") {
-                    radioButton.Enabled = false;
-                }                
-            }
+            // aboutWindow.ShowDialog();
         }
 
         private void CopyFolder(string sourceFolder, string destinationFolder) {
