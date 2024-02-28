@@ -53,7 +53,7 @@
             linkLabelSilverlinkDoras = new LinkLabel();
             pictureBoxSilverlinkDoras = new PictureBox();
             linkLabelSilverlinkTwitch = new LinkLabel();
-            pictureBox1 = new PictureBox();
+            pictureBoxSilverlinkTwitch = new PictureBox();
             panelSilverlinkHeader = new Panel();
             labelSilverlink = new Label();
             labelSilverlinkCreator = new Label();
@@ -90,7 +90,7 @@
             panelSilverlink.SuspendLayout();
             panelSilverlinkLinks1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSilverlinkDoras).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSilverlinkTwitch).BeginInit();
             panelSilverlinkHeader.SuspendLayout();
             panelStreamUP.SuspendLayout();
             panelStreamUPLinks2.SuspendLayout();
@@ -411,7 +411,7 @@
             panelSilverlinkLinks1.Controls.Add(linkLabelSilverlinkDoras);
             panelSilverlinkLinks1.Controls.Add(pictureBoxSilverlinkDoras);
             panelSilverlinkLinks1.Controls.Add(linkLabelSilverlinkTwitch);
-            panelSilverlinkLinks1.Controls.Add(pictureBox1);
+            panelSilverlinkLinks1.Controls.Add(pictureBoxSilverlinkTwitch);
             panelSilverlinkLinks1.Dock = DockStyle.Top;
             panelSilverlinkLinks1.Location = new Point(12, 40);
             panelSilverlinkLinks1.Name = "panelSilverlinkLinks1";
@@ -457,18 +457,18 @@
             linkLabelSilverlinkTwitch.TextAlign = ContentAlignment.MiddleLeft;
             linkLabelSilverlinkTwitch.LinkClicked += linkLabelSilverlinkTwitch_LinkClicked;
             // 
-            // pictureBox1
+            // pictureBoxSilverlinkTwitch
             // 
-            pictureBox1.Dock = DockStyle.Left;
-            pictureBox1.Image = Properties.Resources.AboutWindowTwitch;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(10);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Padding = new Padding(10);
-            pictureBox1.Size = new Size(65, 40);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
+            pictureBoxSilverlinkTwitch.Dock = DockStyle.Left;
+            pictureBoxSilverlinkTwitch.Image = Properties.Resources.AboutWindowTwitch;
+            pictureBoxSilverlinkTwitch.Location = new Point(0, 0);
+            pictureBoxSilverlinkTwitch.Margin = new Padding(10);
+            pictureBoxSilverlinkTwitch.Name = "pictureBoxSilverlinkTwitch";
+            pictureBoxSilverlinkTwitch.Padding = new Padding(10);
+            pictureBoxSilverlinkTwitch.Size = new Size(65, 40);
+            pictureBoxSilverlinkTwitch.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxSilverlinkTwitch.TabIndex = 10;
+            pictureBoxSilverlinkTwitch.TabStop = false;
             // 
             // panelSilverlinkHeader
             // 
@@ -744,7 +744,7 @@
             panelSilverlink.ResumeLayout(false);
             panelSilverlinkLinks1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxSilverlinkDoras).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSilverlinkTwitch).EndInit();
             panelSilverlinkHeader.ResumeLayout(false);
             panelStreamUP.ResumeLayout(false);
             panelStreamUPLinks2.ResumeLayout(false);
@@ -765,10 +765,6 @@
         private Panel panelLeft;
         private Panel panelRight;
         private Label labelStreamUP;
-        private PictureBox pictureBoxSilverlinkTwitch;
-        private LinkLabel linkLabelSilverlinkYoutube;
-        private PictureBox pictureBoxSilverlinkYT;
-        private PictureBox pictureBoxSilverlinkTikTok;
         private Panel panelStreamUP;
         private Panel panelSpacer1;
         private Panel panelStreamUPHeader;
@@ -777,17 +773,12 @@
         private LinkLabel linkLabelSUKofi;
         private LinkLabel linkLabelSUPatreon;
         private PictureBox pictureBoxStreamUPPatreon;
-        private PictureBox pictureBoxSilverlinkX;
-        private LinkLabel linkLabelSilverlinkX;
         private Panel panelStreamUPLinks2;
         private LinkLabel linkLabelStreamUPYoutube;
         private PictureBox pictureBoxStreamUPYoutube;
         private LinkLabel linkLabelStreamUPTwitch;
         private PictureBox pictureBoxStreamUPTwitch;
         private Panel panelSpacer2;
-        private Panel panel6;
-        private LinkLabel linkLabelSilverlinkThrone;
-        private PictureBox pictureBoxSilverlinkThrone;
         private Panel panelAndilippi;
         private Panel panelAndilippiLinks1;
         private LinkLabel linkLabelAndilippiTwitch;
@@ -796,7 +787,6 @@
         private Label labelAndilippi;
         private Label labelAndilippiFounder;
         private Panel panelAndilippiColorHightlight;
-        private LinkLabel linkLabelSilverlinkTikTok;
         private PictureBox pictureBoxStreamUPKoFi;
         private Panel panelWaldo;
         private Panel panelWaldoLinks1;
@@ -814,7 +804,6 @@
         private LinkLabel linkLabelSilverlinkDoras;
         private PictureBox pictureBoxSilverlinkDoras;
         private LinkLabel linkLabelSilverlinkTwitch;
-        private PictureBox pictureBox1;
         private Panel panelSilverlinkHeader;
         private Label labelSilverlink;
         private Label labelSilverlinkCreator;
@@ -823,5 +812,6 @@
         private PictureBox pictureBoxWaldoDoras;
         private LinkLabel linkLabelAndilippiDoras;
         private PictureBox pictureBoxAndilippiDoras;
+        private PictureBox pictureBoxSilverlinkTwitch;
     }
 }

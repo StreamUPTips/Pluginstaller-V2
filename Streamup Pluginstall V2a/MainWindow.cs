@@ -5,6 +5,8 @@ using System.IO.Compression;
 using System.Security.Principal;
 using HttpClientProgress;
 using Streamup_Pluginstall_V2.Custom_Controls;
+using System.Runtime.CompilerServices;
+using System;
 
 namespace Streamup_Pluginstall_V2 {
     public partial class MainWindow : Form {
@@ -17,11 +19,20 @@ namespace Streamup_Pluginstall_V2 {
         string buttonDownloadDefaultText;
         string outOfDateOBSPlugins = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "StreamUP-OutdatedPluginsList.txt");
         readonly string appFolder = AppDomain.CurrentDomain.BaseDirectory;
+        readonly string downloadedFilesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Downloaded Files");
         string currentVersion = "2.0.0";
         bool hasOutDatedFile = false;
+        bool agreedDontShowAgain = Convert.ToBoolean(Properties.Settings.Default["agreedDontShowAgain"]);
+        
 
         public MainWindow() {
             InitializeComponent();
+
+            List<Control> controls = Controls.Cast<Control>().Where(c => c is Panel || c is Label).ToList();
+
+            foreach (Control control in controls) {
+                control.TabStop = false;
+            }
         }
 
         private void LoadSettings() {
@@ -81,6 +92,15 @@ namespace Streamup_Pluginstall_V2 {
             CheckForUpdates();
             LoadSettings();
 
+            if (!agreedDontShowAgain) {
+                TermsAndConditions termsAndConditions = new TermsAndConditions();
+                termsAndConditions.ShowDialog();
+                Debug.WriteLine(termsAndConditions.DialogResult);
+                if (termsAndConditions.DialogResult == DialogResult.No || termsAndConditions.DialogResult == DialogResult.Cancel) {
+                    System.Windows.Forms.Application.Exit();
+                }
+            }
+
             labelVersion.Text = currentVersion;
 
             buttonDownloadDefaultText = buttonDownload.Text;
@@ -91,6 +111,21 @@ namespace Streamup_Pluginstall_V2 {
             outDatedPluginList.Created += PluginListCheck;
             outDatedPluginList.Deleted += PluginListCheck;
             outDatedPluginList.EnableRaisingEvents = true;
+
+            if (!Directory.Exists(downloadedFilesFolder)) {
+                Directory.CreateDirectory(downloadedFilesFolder);
+            }
+
+            if (Directory.GetFiles(downloadedFilesFolder).Length >= 1) {
+                buttonUnZIP.Enabled = true;
+            }
+
+            FileSystemWatcher downloadedFiles = new FileSystemWatcher();
+            downloadedFiles.Path = downloadedFilesFolder;
+            downloadedFiles.Filter = "*.zip";
+            downloadedFiles.Created += ZipChecker;
+            downloadedFiles.Deleted += ZipChecker;
+            downloadedFiles.EnableRaisingEvents = true;
 
             int maxRetries = 5;
             int currentRetry = 0;
@@ -355,6 +390,12 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private async void buttonDownload_Click(object sender, EventArgs e) {
+
+            if (checkedListBoxPlugins.SelectedItems.Count <= 0) {
+                MessageBox.Show("No plugins selected!", "Error!");
+                return;
+            }
+
             if (checkBoxOpenUrlsOnly.Checked) {
                 var openURLs = MessageBox.Show($"Are you sure you want to open {checkedListBoxPlugins.CheckedItems.Count} links in your default browser??", $"Open Links in Browser", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 foreach (var item in checkedListBoxPlugins.CheckedItems) {
@@ -521,8 +562,8 @@ Thank you for using the Pluginstaller by StreamUP";
 
         private async void buttonExpand_Click(object sender, EventArgs e) {
             // Test button
-            // AboutWindow aboutWindow = new AboutWindow();
-            // aboutWindow.ShowDialog();
+            TermsAndConditions termsAndConditions = new TermsAndConditions();
+            termsAndConditions.ShowDialog();
         }
 
         private void CopyFolder(string sourceFolder, string destinationFolder) {
@@ -597,7 +638,7 @@ Thank you for using the Pluginstaller by StreamUP";
                         }
                 }
 
-                ZipFile.ExtractToDirectory(zipFile, extractPath);
+                ZipFile.ExtractToDirectory(zipFile, extractPath, true);
                 File.Delete(zipFile);
 
                 if (extractPath.Contains("blur-filter-obs-plugin")) {
@@ -672,8 +713,7 @@ Thank you for using the Pluginstaller by StreamUP";
         }
 
         private void buttonUnZIP_Click(object sender, EventArgs e) {
-            var directoryPath = Path.Combine(textBoxSaveLocation.Text, "Downloads");
-            ExpandFiles(directoryPath);
+            ExpandFiles(downloadedFilesFolder);
         }
 
         private bool SetElevation(string selectedPath) {
@@ -796,6 +836,20 @@ If you click No you can select a different location where you can download the O
                     hasOutDatedFile = false;
                     radioButtonRequired.Select();
                 }));
+            }
+        }
+
+        private void ZipChecker(object sender, FileSystemEventArgs e) {
+            if (e.ChangeType == WatcherChangeTypes.Created) {
+                Invoke(new Action(() => {
+                    buttonUnZIP.Enabled = true;
+                }));
+            } else if (e.ChangeType == WatcherChangeTypes.Deleted) {
+                if (Directory.GetFiles(downloadedFilesFolder).Length < 1) {
+                    Invoke(new Action(() => {
+                        buttonUnZIP.Enabled = false;
+                    }));
+                }
             }
         }
 

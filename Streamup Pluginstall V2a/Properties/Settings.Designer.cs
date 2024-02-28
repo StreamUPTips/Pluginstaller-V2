@@ -46,5 +46,17 @@ namespace Streamup_Pluginstall_V2.Properties {
                 this["saveLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool agreedDontShowAgain {
+            get {
+                return ((bool)(this["agreedDontShowAgain"]));
+            }
+            set {
+                this["agreedDontShowAgain"] = value;
+            }
+        }
     }
 }

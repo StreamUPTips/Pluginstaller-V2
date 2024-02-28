@@ -23,6 +23,7 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             checkedListBoxPlugins = new CheckedListBox();
             buttonSaveFolder = new Button();
             textBoxSaveLocation = new TextBox();
@@ -83,7 +84,7 @@
             buttonSaveFolder.Location = new Point(425, 609);
             buttonSaveFolder.Name = "buttonSaveFolder";
             buttonSaveFolder.Size = new Size(35, 42);
-            buttonSaveFolder.TabIndex = 1;
+            buttonSaveFolder.TabIndex = 13;
             buttonSaveFolder.UseVisualStyleBackColor = false;
             buttonSaveFolder.Click += buttonSaveFolder_Click;
             // 
@@ -113,7 +114,7 @@
             buttonDownload.Location = new Point(700, 609);
             buttonDownload.Name = "buttonDownload";
             buttonDownload.Size = new Size(221, 42);
-            buttonDownload.TabIndex = 9;
+            buttonDownload.TabIndex = 15;
             buttonDownload.Text = "Download Plugins";
             buttonDownload.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonDownload.UseVisualStyleBackColor = false;
@@ -128,22 +129,23 @@
             buttonTest.Name = "buttonTest";
             buttonTest.Size = new Size(120, 51);
             buttonTest.TabIndex = 12;
+            buttonTest.TabStop = false;
             buttonTest.Text = "Disabled for Andilippi";
             buttonTest.UseVisualStyleBackColor = false;
             buttonTest.Click += buttonExpand_Click;
             // 
             // checkBoxExtract
             // 
-            checkBoxExtract.CheckAlign = ContentAlignment.BottomRight;
+            checkBoxExtract.BackColor = Color.Transparent;
             checkBoxExtract.Checked = true;
             checkBoxExtract.CheckState = CheckState.Checked;
             checkBoxExtract.FlatAppearance.BorderSize = 0;
             checkBoxExtract.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            checkBoxExtract.Location = new Point(473, 84);
+            checkBoxExtract.Location = new Point(473, 88);
             checkBoxExtract.Name = "checkBoxExtract";
             checkBoxExtract.Size = new Size(15, 15);
-            checkBoxExtract.TabIndex = 14;
-            checkBoxExtract.UseVisualStyleBackColor = true;
+            checkBoxExtract.TabIndex = 6;
+            checkBoxExtract.UseVisualStyleBackColor = false;
             checkBoxExtract.CheckedChanged += checkBoxUnzip_CheckedChanged;
             // 
             // checkBoxOpenUrlsOnly
@@ -154,7 +156,7 @@
             checkBoxOpenUrlsOnly.Location = new Point(473, 115);
             checkBoxOpenUrlsOnly.Name = "checkBoxOpenUrlsOnly";
             checkBoxOpenUrlsOnly.Size = new Size(15, 14);
-            checkBoxOpenUrlsOnly.TabIndex = 15;
+            checkBoxOpenUrlsOnly.TabIndex = 7;
             checkBoxOpenUrlsOnly.UseVisualStyleBackColor = true;
             checkBoxOpenUrlsOnly.CheckedChanged += checkBoxOpenUrlsOnly_CheckedChanged;
             // 
@@ -169,7 +171,7 @@
             buttonOpenFolder.Location = new Point(473, 609);
             buttonOpenFolder.Name = "buttonOpenFolder";
             buttonOpenFolder.Size = new Size(221, 42);
-            buttonOpenFolder.TabIndex = 9;
+            buttonOpenFolder.TabIndex = 14;
             buttonOpenFolder.Text = "Open download folder";
             buttonOpenFolder.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonOpenFolder.UseVisualStyleBackColor = false;
@@ -184,7 +186,7 @@
             buttonUnZIP.Location = new Point(604, 142);
             buttonUnZIP.Name = "buttonUnZIP";
             buttonUnZIP.Size = new Size(125, 25);
-            buttonUnZIP.TabIndex = 17;
+            buttonUnZIP.TabIndex = 9;
             buttonUnZIP.Text = "Unzip Current Files";
             buttonUnZIP.UseVisualStyleBackColor = false;
             buttonUnZIP.Click += buttonUnZIP_Click;
@@ -206,7 +208,7 @@
             panelTextBoxSaveLocation.Location = new Point(12, 609);
             panelTextBoxSaveLocation.Name = "panelTextBoxSaveLocation";
             panelTextBoxSaveLocation.Size = new Size(407, 42);
-            panelTextBoxSaveLocation.TabIndex = 18;
+            panelTextBoxSaveLocation.TabIndex = 12;
             // 
             // panelCheckedListBoxPlugins
             // 
@@ -215,7 +217,7 @@
             panelCheckedListBoxPlugins.Location = new Point(12, 171);
             panelCheckedListBoxPlugins.Name = "panelCheckedListBoxPlugins";
             panelCheckedListBoxPlugins.Size = new Size(448, 432);
-            panelCheckedListBoxPlugins.TabIndex = 23;
+            panelCheckedListBoxPlugins.TabIndex = 10;
             // 
             // labelWarning1
             // 
@@ -250,7 +252,7 @@
             progressBarDownload.Name = "progressBarDownload";
             progressBarDownload.ProgressColor = Color.FromArgb(255, 134, 189);
             progressBarDownload.Size = new Size(429, 23);
-            progressBarDownload.TabIndex = 25;
+            progressBarDownload.TabIndex = 15;
             progressBarDownload.TextColor = Color.Black;
             progressBarDownload.TextFont = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             progressBarDownload.Visible = false;
@@ -260,7 +262,7 @@
             // 
             labelAutomaticallyExtract.AutoSize = true;
             labelAutomaticallyExtract.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelAutomaticallyExtract.Location = new Point(494, 80);
+            labelAutomaticallyExtract.Location = new Point(494, 84);
             labelAutomaticallyExtract.Name = "labelAutomaticallyExtract";
             labelAutomaticallyExtract.Size = new Size(165, 21);
             labelAutomaticallyExtract.TabIndex = 26;
@@ -298,7 +300,7 @@
             richTextBoxLog.ReadOnly = true;
             richTextBoxLog.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
             richTextBoxLog.Size = new Size(441, 432);
-            richTextBoxLog.TabIndex = 29;
+            richTextBoxLog.TabIndex = 0;
             richTextBoxLog.Text = "";
             richTextBoxLog.LinkClicked += richTextBoxLog_LinkClicked;
             // 
@@ -309,7 +311,7 @@
             panelRichTextBox.Location = new Point(473, 171);
             panelRichTextBox.Name = "panelRichTextBox";
             panelRichTextBox.Size = new Size(448, 432);
-            panelRichTextBox.TabIndex = 30;
+            panelRichTextBox.TabIndex = 11;
             // 
             // buttonClearSelection
             // 
@@ -321,7 +323,7 @@
             buttonClearSelection.Location = new Point(473, 142);
             buttonClearSelection.Name = "buttonClearSelection";
             buttonClearSelection.Size = new Size(125, 25);
-            buttonClearSelection.TabIndex = 32;
+            buttonClearSelection.TabIndex = 8;
             buttonClearSelection.Text = "Clear Selection";
             buttonClearSelection.UseVisualStyleBackColor = false;
             buttonClearSelection.Click += buttonClearSelection_Click;
@@ -336,7 +338,7 @@
             buttonAbout.Location = new Point(888, 9);
             buttonAbout.Name = "buttonAbout";
             buttonAbout.Size = new Size(31, 31);
-            buttonAbout.TabIndex = 31;
+            buttonAbout.TabIndex = 16;
             buttonAbout.TextAlign = ContentAlignment.BottomCenter;
             buttonAbout.UseVisualStyleBackColor = true;
             buttonAbout.Click += buttonAbout_Click;
@@ -351,7 +353,7 @@
             radioButtonRequired.MinimumSize = new Size(0, 21);
             radioButtonRequired.Name = "radioButtonRequired";
             radioButtonRequired.Size = new Size(163, 25);
-            radioButtonRequired.TabIndex = 33;
+            radioButtonRequired.TabIndex = 0;
             radioButtonRequired.TabStop = true;
             radioButtonRequired.Text = "Required Plugins";
             radioButtonRequired.UncheckedColor = Color.Gray;
@@ -367,7 +369,7 @@
             radioButtonRecommended.MinimumSize = new Size(0, 21);
             radioButtonRecommended.Name = "radioButtonRecommended";
             radioButtonRecommended.Size = new Size(208, 25);
-            radioButtonRecommended.TabIndex = 33;
+            radioButtonRecommended.TabIndex = 1;
             radioButtonRecommended.Text = "Recommended Plugins";
             radioButtonRecommended.UncheckedColor = Color.Gray;
             radioButtonRecommended.UseVisualStyleBackColor = true;
@@ -382,7 +384,7 @@
             radioButtonRequiredAndRecommended.MinimumSize = new Size(0, 21);
             radioButtonRequiredAndRecommended.Name = "radioButtonRequiredAndRecommended";
             radioButtonRequiredAndRecommended.Size = new Size(310, 25);
-            radioButtonRequiredAndRecommended.TabIndex = 33;
+            radioButtonRequiredAndRecommended.TabIndex = 2;
             radioButtonRequiredAndRecommended.Text = "Required and Recommended Plugins";
             radioButtonRequiredAndRecommended.UncheckedColor = Color.Gray;
             radioButtonRequiredAndRecommended.UseVisualStyleBackColor = true;
@@ -397,7 +399,7 @@
             radioButtonAll.MinimumSize = new Size(0, 21);
             radioButtonAll.Name = "radioButtonAll";
             radioButtonAll.Size = new Size(115, 25);
-            radioButtonAll.TabIndex = 33;
+            radioButtonAll.TabIndex = 3;
             radioButtonAll.Text = "All Plugins";
             radioButtonAll.UncheckedColor = Color.Gray;
             radioButtonAll.UseVisualStyleBackColor = true;
@@ -412,7 +414,7 @@
             radioButtonCustom.MinimumSize = new Size(0, 21);
             radioButtonCustom.Name = "radioButtonCustom";
             radioButtonCustom.Size = new Size(96, 25);
-            radioButtonCustom.TabIndex = 33;
+            radioButtonCustom.TabIndex = 5;
             radioButtonCustom.Text = "Custom";
             radioButtonCustom.UncheckedColor = Color.Gray;
             radioButtonCustom.UseVisualStyleBackColor = true;
@@ -428,7 +430,7 @@
             radioButtonOutdated.MinimumSize = new Size(0, 21);
             radioButtonOutdated.Name = "radioButtonOutdated";
             radioButtonOutdated.Size = new Size(110, 25);
-            radioButtonOutdated.TabIndex = 33;
+            radioButtonOutdated.TabIndex = 4;
             radioButtonOutdated.Text = "Outdated";
             radioButtonOutdated.UncheckedColor = Color.Gray;
             radioButtonOutdated.UseVisualStyleBackColor = true;
@@ -440,6 +442,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 23, 45);
             ClientSize = new Size(932, 663);
+            Controls.Add(labelAutomaticallyExtract);
+            Controls.Add(checkBoxExtract);
             Controls.Add(buttonClearSelection);
             Controls.Add(radioButtonOutdated);
             Controls.Add(radioButtonCustom);
@@ -452,7 +456,6 @@
             Controls.Add(panelRichTextBox);
             Controls.Add(labelVersion);
             Controls.Add(labelOpenUrlsOnly);
-            Controls.Add(labelAutomaticallyExtract);
             Controls.Add(labelWarning2);
             Controls.Add(labelWarning1);
             Controls.Add(buttonOpenFolder);
@@ -462,11 +465,11 @@
             Controls.Add(buttonSaveFolder);
             Controls.Add(buttonUnZIP);
             Controls.Add(checkBoxOpenUrlsOnly);
-            Controls.Add(checkBoxExtract);
             Controls.Add(buttonTest);
             Controls.Add(pictureBoxStreamUPLogo);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainWindow";
             SizeGripStyle = SizeGripStyle.Hide;
