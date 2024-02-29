@@ -56,7 +56,10 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private void SetOBSSettings() {
-            if (textBoxSaveLocation.Text.ToLower().Contains("obs-studio")) {
+
+            bool obsMode = GetObsMode();
+
+            if (obsMode) {
                 labelWarning1.Visible = true;
                 checkBoxExtract.Enabled = false;
                 checkBoxExtract.Checked = true;
@@ -95,7 +98,6 @@ namespace Streamup_Pluginstall_V2 {
             if (!agreedDontShowAgain) {
                 TermsAndConditions termsAndConditions = new TermsAndConditions();
                 termsAndConditions.ShowDialog();
-                Debug.WriteLine(termsAndConditions.DialogResult);
                 if (termsAndConditions.DialogResult == DialogResult.No || termsAndConditions.DialogResult == DialogResult.Cancel) {
                     System.Windows.Forms.Application.Exit();
                 }
@@ -281,7 +283,9 @@ namespace Streamup_Pluginstall_V2 {
                 Properties.Settings.Default["saveLocation"] = appFolder;
             }
 
-            if (selectedPath.ToLower().Contains("obs-studio")) {
+            bool obsMode = GetObsMode();
+
+            if (obsMode) {
                 checkBoxExtract.Enabled = false;
                 checkBoxExtract.Checked = true;
 
@@ -390,7 +394,7 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private async void buttonDownload_Click(object sender, EventArgs e) {
-
+            
             if (checkedListBoxPlugins.SelectedItems.Count <= 0) {
                 MessageBox.Show("No plugins selected!", "Error!");
                 return;
@@ -423,10 +427,11 @@ namespace Streamup_Pluginstall_V2 {
             string tempFolder = Path.Combine(appFolder, "temp");
             string remainingFilesFolder = Path.Combine(appFolder, "Remaining Files");
             string destinationFolder = textBoxSaveLocation.Text;
-            bool containsOBSStudioFolder = destinationFolder.ToLower().Contains("obs-studio");
             bool extractFiles = checkBoxExtract.Checked;
+            bool obsMode = GetObsMode();
 
-            if (containsOBSStudioFolder && extractFiles) {
+
+            if (obsMode) { // Does it need the && extractFiles? We want to always extract when selecting an OBS-Studio Folder
                 bool canContinue = GetOBSProcesses(destinationFolder);
                 if (!canContinue) {
                     AddTextToLog("User cancelled or couldn't close OBS-Studio");
@@ -463,7 +468,7 @@ namespace Streamup_Pluginstall_V2 {
 
             string tempOBSFolder = Path.Combine(tempFolder, "obs-studio");
 
-            if (!containsOBSStudioFolder) {
+            if (!obsMode) {
                 destinationFolder = Path.Combine(destinationFolder, "obs-studio");
             }
 
@@ -484,7 +489,7 @@ namespace Streamup_Pluginstall_V2 {
             // Deleting the temp folder!
             Directory.Delete(tempFolder, true);
 
-            if (containsOBSStudioFolder) {
+            if (obsMode) {
                 AddTextToLog("Files have been copied / written to your OBS-Studio Folder!\r\nIf there are any issues please restore a backup");
             }
             AddTextToLog("DONE!");
@@ -690,7 +695,9 @@ Thank you for using the Pluginstaller by StreamUP";
 
             string downloadPath = textBoxSaveLocation.Text;
 
-            if (!downloadPath.Contains("obs-studio")) {
+            bool obsMode = GetObsMode();
+
+            if (!obsMode) {
                 if (Directory.Exists(Path.Combine(downloadPath, "Downloads"))) {
                     downloadPath = Path.Combine(downloadPath, "Downloads");
                 }
@@ -863,6 +870,21 @@ If you click No you can select a different location where you can download the O
                 checkedListBoxPlugins.SetItemCheckState(i, CheckState.Unchecked);
             }
         }
+
+        private bool GetObsMode () {
+            string downloadPath = textBoxSaveLocation.Text;
+
+            bool obsMode = false;
+            bool containsObsStudioFolderName = downloadPath.ToLower().Contains("obs-studio");
+            bool containsObsFile = File.Exists(Path.Combine(downloadPath, @"bin\64bit\obs64.exe"));
+
+            if (containsObsStudioFolderName || containsObsFile) {
+                obsMode = true;
+            }
+
+            return obsMode;
+        }
+
     }
 
     class Plugin {
