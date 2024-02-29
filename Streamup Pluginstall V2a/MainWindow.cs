@@ -395,7 +395,7 @@ namespace Streamup_Pluginstall_V2 {
 
         private async void buttonDownload_Click(object sender, EventArgs e) {
             
-            if (checkedListBoxPlugins.SelectedItems.Count <= 0) {
+            if (checkedListBoxPlugins.CheckedItems.Count <= 0) {
                 MessageBox.Show("No plugins selected!", "Error!");
                 return;
             }
