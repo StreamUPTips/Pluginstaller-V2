@@ -61,9 +61,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\Pluginstaller-V2\\Streamup Pluginstall V2a\\Streamup Pluginstall V2.csproj",
-      "projectName": "Streamup Pluginstall V2",
-      "projectPath": "D:\\Coding\\Pluginstaller-V2\\Streamup Pluginstall V2a\\Streamup Pluginstall V2.csproj",
+      "projectUniqueName": "D:\\Coding\\Pluginstaller-V2\\Streamup Pluginstall V2a\\Streamup Pluginstaller V2.csproj",
+      "projectName": "Streamup Pluginstaller V2",
+      "projectPath": "D:\\Coding\\Pluginstaller-V2\\Streamup Pluginstall V2a\\Streamup Pluginstaller V2.csproj",
       "packagesPath": "C:\\Users\\Silverlink\\.nuget\\packages\\",
       "outputPath": "D:\\Coding\\Pluginstaller-V2\\Streamup Pluginstall V2a\\obj\\",
       "projectStyle": "PackageReference",

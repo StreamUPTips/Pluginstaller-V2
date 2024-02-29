@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Uk+0/pTonHcFdYIcroLlXSHlpPvYsdeD4s6SXnWcH/eviVLfMJgGnEDF+PUtXEZMdYnGkxfIkos948uZnsPXig==",
+  "dgSpecHash": "kUagv5y/yarOed0W1GdR/B3FVhFOmwN+WBFL+l53RclL2iTd3Znc6Hm0DSHUNd6wtNpb12lrlp6ydgocbAS+Kg==",
   "success": true,
-  "projectFilePath": "D:\\Coding\\Pluginstaller-V2\\Streamup Pluginstall V2a\\Streamup Pluginstall V2.csproj",
+  "projectFilePath": "D:\\Coding\\Pluginstaller-V2\\Streamup Pluginstall V2a\\Streamup Pluginstaller V2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Silverlink\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
