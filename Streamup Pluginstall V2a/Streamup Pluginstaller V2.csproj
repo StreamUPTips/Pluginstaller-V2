@@ -10,6 +10,7 @@
     <Configurations>Debug;Release</Configurations>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <ApplicationIcon>sulogosmall.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -19,6 +20,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>embedded</DebugType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="sulogosmall.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />

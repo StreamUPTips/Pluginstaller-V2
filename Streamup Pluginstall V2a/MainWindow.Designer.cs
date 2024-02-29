@@ -132,6 +132,7 @@
             buttonTest.TabStop = false;
             buttonTest.Text = "Disabled for Andilippi";
             buttonTest.UseVisualStyleBackColor = false;
+            buttonTest.Visible = false;
             buttonTest.Click += buttonExpand_Click;
             // 
             // checkBoxExtract

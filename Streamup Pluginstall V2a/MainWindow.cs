@@ -23,7 +23,9 @@ namespace Streamup_Pluginstall_V2 {
         string currentVersion = "2.0.0";
         bool hasOutDatedFile = false;
         bool agreedDontShowAgain = Convert.ToBoolean(Properties.Settings.Default["agreedDontShowAgain"]);
-        
+        bool checkBoxExtractState;
+        bool checkboxExtractChecked;
+
 
         public MainWindow() {
             InitializeComponent();
@@ -373,21 +375,39 @@ namespace Streamup_Pluginstall_V2 {
             progressBarDownload.Visible = false;
         }
 
-        private void SetCheckboxes(string mode) {
+        private void SetFormItemsEnabledState(bool enabled, bool checkBoxExtractState = false) {
             var radioButtons = this.Controls.OfType<RadioButtonFlat>();
-            if (mode == "enable" && radioButtonCustom.Checked) {
-                buttonClearSelection.Enabled = true;
-            } else if (mode == "disable") {
+
+            if (enabled) {
+                if (radioButtonCustom.Checked) {
+                    buttonClearSelection.Enabled = true;
+                }
+                checkedListBoxPlugins.Enabled = true;
+                buttonDownload.Enabled = true;
+                buttonOpenFolder.Enabled = true;
+                buttonSaveFolder.Enabled = true;
+                checkBoxExtract.Enabled = checkBoxExtractState;
+                checkBoxOpenUrlsOnly.Enabled = true;    
+                textBoxSaveLocation.Enabled = true;
+            } else if (!enabled) {
+                checkedListBoxPlugins.Enabled = false;
                 buttonClearSelection.Enabled = false;
+                buttonDownload.Enabled = false;
+                buttonOpenFolder.Enabled = false;
+                buttonSaveFolder.Enabled = false;
+                checkBoxExtract.Enabled = false;
+                checkBoxOpenUrlsOnly.Enabled = false;
+                textBoxSaveLocation.Enabled = false;
             }
+
             foreach (var radioButton in radioButtons) {
-                if (mode == "enable") {
+                if (enabled) {
                     if (radioButton.Name == "radioButtonOutdated") {
                         radioButton.Enabled = hasOutDatedFile;
                     } else {
                         radioButton.Enabled = true;
                     }
-                } else if (mode == "disable") {
+                } else if (!enabled) {
                     radioButton.Enabled = false;
                 }
             }
@@ -422,7 +442,8 @@ namespace Streamup_Pluginstall_V2 {
                 return;
             }
 
-            SetCheckboxes("disable");
+            checkBoxExtractState = checkBoxExtract.Enabled;
+            SetFormItemsEnabledState(false);
 
             string tempFolder = Path.Combine(appFolder, "temp");
             string remainingFilesFolder = Path.Combine(appFolder, "Remaining Files");
@@ -435,7 +456,7 @@ namespace Streamup_Pluginstall_V2 {
                 bool canContinue = GetOBSProcesses(destinationFolder);
                 if (!canContinue) {
                     AddTextToLog("User cancelled or couldn't close OBS-Studio");
-                    SetCheckboxes("enable");
+                    SetFormItemsEnabledState(true, checkBoxExtractState);
                     return;
 
                 }
@@ -460,7 +481,7 @@ namespace Streamup_Pluginstall_V2 {
                 Directory.Delete(tempFolder, true);
                 AddTextToLog(@$"Done downloading! You can find the files in:");
                 AddTextToLog($@"""File://{Path.Combine(destinationFolder, "Downloaded Files")}""");
-                SetCheckboxes("enable");
+                SetFormItemsEnabledState(true, checkBoxExtractState);
                 return;
             }
 
@@ -493,7 +514,7 @@ namespace Streamup_Pluginstall_V2 {
                 AddTextToLog("Files have been copied / written to your OBS-Studio Folder!\r\nIf there are any issues please restore a backup");
             }
             AddTextToLog("DONE!");
-            SetCheckboxes("enable");
+            SetFormItemsEnabledState(true, checkBoxExtractState);
             /* string finalText = @"---------------
 All plugins should be downloaded and extracted.
 You can click the button 'Open download folder' to open the directory with the proper files in it.
@@ -602,11 +623,13 @@ Thank you for using the Pluginstaller by StreamUP";
 
         private void checkBoxOpenUrlsOnly_CheckedChanged(object sender, EventArgs e) {
             if (checkBoxOpenUrlsOnly.Checked) {
+                checkboxExtractChecked = checkBoxExtract.Checked;
                 checkBoxExtract.Checked = false;
                 checkBoxExtract.Enabled = false;
                 buttonDownload.Text = $"Open URLs";
             } else {
-                checkBoxExtract.Enabled = true;
+                checkBoxExtract.Enabled = checkBoxExtractState;
+                checkBoxExtract.Checked = checkboxExtractChecked;
                 buttonDownload.Text = buttonDownloadDefaultText;
             }
             return;
