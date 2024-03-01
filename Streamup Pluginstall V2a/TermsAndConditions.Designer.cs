@@ -36,7 +36,7 @@
             // 
             labelAgreement.Location = new Point(12, 153);
             labelAgreement.Name = "labelAgreement";
-            labelAgreement.Size = new Size(1005, 285);
+            labelAgreement.Size = new Size(1005, 310);
             labelAgreement.TabIndex = 0;
             labelAgreement.Text = resources.GetString("labelAgreement.Text");
             labelAgreement.TextAlign = ContentAlignment.MiddleCenter;
@@ -45,7 +45,7 @@
             // 
             checkBoxDontShowAgain.Anchor = AnchorStyles.Top;
             checkBoxDontShowAgain.AutoSize = true;
-            checkBoxDontShowAgain.Location = new Point(392, 516);
+            checkBoxDontShowAgain.Location = new Point(392, 541);
             checkBoxDontShowAgain.Name = "checkBoxDontShowAgain";
             checkBoxDontShowAgain.Size = new Size(251, 25);
             checkBoxDontShowAgain.TabIndex = 3;
@@ -58,7 +58,7 @@
             buttonAgree.DialogResult = DialogResult.Yes;
             buttonAgree.FlatAppearance.BorderSize = 0;
             buttonAgree.FlatStyle = FlatStyle.Flat;
-            buttonAgree.Location = new Point(242, 441);
+            buttonAgree.Location = new Point(242, 466);
             buttonAgree.Name = "buttonAgree";
             buttonAgree.Size = new Size(224, 69);
             buttonAgree.TabIndex = 1;
@@ -72,7 +72,7 @@
             buttonDisagree.DialogResult = DialogResult.No;
             buttonDisagree.FlatAppearance.BorderSize = 0;
             buttonDisagree.FlatStyle = FlatStyle.Flat;
-            buttonDisagree.Location = new Point(563, 441);
+            buttonDisagree.Location = new Point(563, 466);
             buttonDisagree.Name = "buttonDisagree";
             buttonDisagree.Size = new Size(224, 69);
             buttonDisagree.TabIndex = 1;
@@ -94,7 +94,7 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 23, 45);
-            ClientSize = new Size(1029, 550);
+            ClientSize = new Size(1029, 575);
             Controls.Add(pictureBox1);
             Controls.Add(checkBoxDontShowAgain);
             Controls.Add(buttonAgree);

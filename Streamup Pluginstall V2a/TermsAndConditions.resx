@@ -126,7 +126,8 @@ All files are downloaded from the original location (OBS forums and/or GitHub) a
 
 We do not recommend downloading directly into your OBS-Studio folder; however, there are no restrictions on doing so. If you choose to do so, a backup of your OBS-Studio will be made and placed in the StreamUP Pluginstaller Folder.
 
-The StreamUP Pluginstaller will only detect if it's an OBS-Studio folder if the folder name contains "obs-studio" in it.
+The StreamUP Pluginstaller recognizes an OBS-Studio folder by its name or the contents of the selected folder
+(so long if that folder has the proper file and directory structure)
 
 StreamUP cannot be held accountable for damages to your PC or OBS instance(s).</value>
   </data>
