@@ -114,6 +114,8 @@ namespace Streamup_Pluginstall_V2 {
             outDatedPluginList.Filter = "StreamUP-OutdatedPluginsList.txt";
             outDatedPluginList.Created += PluginListCheck;
             outDatedPluginList.Deleted += PluginListCheck;
+            outDatedPluginList.Changed += PluginListCheck;
+            outDatedPluginList.Renamed += PluginListCheck;
             outDatedPluginList.EnableRaisingEvents = true;
 
             if (!Directory.Exists(downloadedFilesFolder)) {
@@ -204,7 +206,31 @@ namespace Streamup_Pluginstall_V2 {
             if (File.Exists(outOfDateOBSPlugins)) {
                 radioButtonOutdated.Enabled = true;
                 hasOutDatedFile = true;
+
+                SetRadioButtonOutdatedCount();
             }
+        }
+
+        private void SetRadioButtonOutdatedCount(bool reset = false) {
+            if (reset) {
+                radioButtonOutdated.Text = $"Outdated";
+                return;
+            }
+
+
+            if (!File.Exists(outOfDateOBSPlugins)) {
+                return;
+            }
+
+            var outOfDateOBSPluginsLines = File.ReadAllLines(outOfDateOBSPlugins);
+
+            if (outOfDateOBSPluginsLines != null || outOfDateOBSPluginsLines.Length > 0) {
+                var outOfDateOBSPluginsCount = outOfDateOBSPluginsLines.Length;
+                radioButtonOutdated.Text = $"Outdated ({outOfDateOBSPluginsCount})";
+                return;
+            }
+
+            
         }
 
         private void radioButtonAll_CheckedChanged(object sender, EventArgs e) {
@@ -855,18 +881,57 @@ If you click No you can select a different location where you can download the O
         }
 
         private void PluginListCheck(object sender, FileSystemEventArgs e) {
-            if (e.ChangeType == WatcherChangeTypes.Created) {
+            
+            if (!File.Exists(outOfDateOBSPlugins)) {
+                Invoke(new Action(() => {
+                    radioButtonOutdated.Enabled = false;
+                    hasOutDatedFile = false;
+                    SetRadioButtonOutdatedCount(true);
+                    radioButtonRequired.Select();
+                }));                
+            } else {
                 Invoke(new Action(() => {
                     radioButtonOutdated.Enabled = true;
                     hasOutDatedFile = true;
+                    SetRadioButtonOutdatedCount();
+                }));
+            }
+
+
+            /* if (e.ChangeType == WatcherChangeTypes.Created) {
+                Invoke(new Action(() => {
+                    radioButtonOutdated.Enabled = true;
+                    hasOutDatedFile = true;
+                    SetRadioButtonOutdatedCount();
                 }));
             } else if (e.ChangeType == WatcherChangeTypes.Deleted) {
                 Invoke(new Action(() => {
                     radioButtonOutdated.Enabled = false;
                     hasOutDatedFile = false;
+                    SetRadioButtonOutdatedCount(true);
                     radioButtonRequired.Select();
                 }));
-            }
+            } else if (e.ChangeType == WatcherChangeTypes.Renamed) {
+                Invoke(new Action(() => {
+                    bool fileExists = !File.Exists(outOfDateOBSPlugins);
+                    if (fileExists) {
+                        SetRadioButtonOutdatedCount(true);
+                        radioButtonOutdated.Enabled = false;
+                        hasOutDatedFile = false;
+                        radioButtonRequired.Select();
+                        return;
+                    } else {
+                        radioButtonOutdated.Enabled = true;
+                        hasOutDatedFile = true;
+                        SetRadioButtonOutdatedCount();
+                    }
+                    
+                }));
+            } else if (e.ChangeType == WatcherChangeTypes.Changed) {
+                Invoke(new Action(() => {
+                    SetRadioButtonOutdatedCount();
+                }));
+            } */
         }
 
         private void ZipChecker(object sender, FileSystemEventArgs e) {

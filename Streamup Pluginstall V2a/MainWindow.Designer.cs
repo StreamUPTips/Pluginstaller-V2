@@ -396,7 +396,7 @@
             radioButtonAll.AutoSize = true;
             radioButtonAll.CheckedColor = Color.WhiteSmoke;
             radioButtonAll.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonAll.Location = new Point(345, 78);
+            radioButtonAll.Location = new Point(329, 78);
             radioButtonAll.MinimumSize = new Size(0, 21);
             radioButtonAll.Name = "radioButtonAll";
             radioButtonAll.Size = new Size(115, 25);
@@ -411,7 +411,7 @@
             radioButtonCustom.AutoSize = true;
             radioButtonCustom.CheckedColor = Color.WhiteSmoke;
             radioButtonCustom.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonCustom.Location = new Point(345, 140);
+            radioButtonCustom.Location = new Point(329, 140);
             radioButtonCustom.MinimumSize = new Size(0, 21);
             radioButtonCustom.Name = "radioButtonCustom";
             radioButtonCustom.Size = new Size(96, 25);
@@ -427,7 +427,7 @@
             radioButtonOutdated.CheckedColor = Color.WhiteSmoke;
             radioButtonOutdated.Enabled = false;
             radioButtonOutdated.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButtonOutdated.Location = new Point(345, 109);
+            radioButtonOutdated.Location = new Point(329, 109);
             radioButtonOutdated.MinimumSize = new Size(0, 21);
             radioButtonOutdated.Name = "radioButtonOutdated";
             radioButtonOutdated.Size = new Size(110, 25);
