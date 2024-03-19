@@ -230,7 +230,7 @@ namespace Streamup_Pluginstall_V2 {
                 return;
             }
 
-            
+
         }
 
         private void radioButtonAll_CheckedChanged(object sender, EventArgs e) {
@@ -413,7 +413,7 @@ namespace Streamup_Pluginstall_V2 {
                 buttonOpenFolder.Enabled = true;
                 buttonSaveFolder.Enabled = true;
                 checkBoxExtract.Enabled = checkBoxExtractState;
-                checkBoxOpenUrlsOnly.Enabled = true;    
+                checkBoxOpenUrlsOnly.Enabled = true;
                 textBoxSaveLocation.Enabled = true;
             } else if (!enabled) {
                 checkedListBoxPlugins.Enabled = false;
@@ -440,7 +440,7 @@ namespace Streamup_Pluginstall_V2 {
         }
 
         private async void buttonDownload_Click(object sender, EventArgs e) {
-            
+
             if (checkedListBoxPlugins.CheckedItems.Count <= 0) {
                 MessageBox.Show("No plugins selected!", "Error!");
                 return;
@@ -478,7 +478,7 @@ namespace Streamup_Pluginstall_V2 {
             bool obsMode = GetObsMode();
 
 
-            if (obsMode) { // Does it need the && extractFiles? We want to always extract when selecting an OBS-Studio Folder
+            if (obsMode) {
                 bool canContinue = GetOBSProcesses(destinationFolder);
                 if (!canContinue) {
                     AddTextToLog("User cancelled or couldn't close OBS-Studio");
@@ -486,15 +486,21 @@ namespace Streamup_Pluginstall_V2 {
                     return;
 
                 }
-                AddTextToLog("Making backup of OBS-Studio Folder");
-                AddTextToLog("Please wait, this may take a while!");
-                long totalFolderSize = GetFolderSize(textBoxSaveLocation.Text, true);
-                double totalFolderSizeInMB = ConvertToMegaBytes(totalFolderSize);
-                AddTextToLog($"OBS-Studio Folder size: {totalFolderSizeInMB} MB");
-                long backupSize = await BackupOBSStudioFolder(destinationFolder);
-                double backupSizeInMB = ConvertToMegaBytes(backupSize);
-                AddTextToLog($"Backup size: {backupSizeInMB} MB");
-                AddTextToLog("Backup done!");
+
+                if (checkBoxBackup.Checked) {
+                    AddTextToLog("Making backup of OBS-Studio Folder");
+                    AddTextToLog("Please wait, this may take a while!");
+                    long totalFolderSize = GetFolderSize(textBoxSaveLocation.Text, true);
+                    double totalFolderSizeInMB = ConvertToMegaBytes(totalFolderSize);
+                    AddTextToLog($"OBS-Studio Folder size: {totalFolderSizeInMB} MB");
+                    long backupSize = await BackupOBSStudioFolder(destinationFolder);
+                    double backupSizeInMB = ConvertToMegaBytes(backupSize);
+                    AddTextToLog($"Backup size: {backupSizeInMB} MB");
+                    AddTextToLog("Backup done!");
+                } else {
+                    AddTextToLog("Skipping backup! User opted out for making a backup!");
+                }
+
             }
 
             await GetPlugins(tempFolder);
@@ -881,14 +887,13 @@ If you click No you can select a different location where you can download the O
         }
 
         private void PluginListCheck(object sender, FileSystemEventArgs e) {
-            
             if (!File.Exists(outOfDateOBSPlugins)) {
                 Invoke(new Action(() => {
                     radioButtonOutdated.Enabled = false;
                     hasOutDatedFile = false;
                     SetRadioButtonOutdatedCount(true);
                     radioButtonRequired.Select();
-                }));                
+                }));
             } else {
                 Invoke(new Action(() => {
                     radioButtonOutdated.Enabled = true;
@@ -896,42 +901,6 @@ If you click No you can select a different location where you can download the O
                     SetRadioButtonOutdatedCount();
                 }));
             }
-
-
-            /* if (e.ChangeType == WatcherChangeTypes.Created) {
-                Invoke(new Action(() => {
-                    radioButtonOutdated.Enabled = true;
-                    hasOutDatedFile = true;
-                    SetRadioButtonOutdatedCount();
-                }));
-            } else if (e.ChangeType == WatcherChangeTypes.Deleted) {
-                Invoke(new Action(() => {
-                    radioButtonOutdated.Enabled = false;
-                    hasOutDatedFile = false;
-                    SetRadioButtonOutdatedCount(true);
-                    radioButtonRequired.Select();
-                }));
-            } else if (e.ChangeType == WatcherChangeTypes.Renamed) {
-                Invoke(new Action(() => {
-                    bool fileExists = !File.Exists(outOfDateOBSPlugins);
-                    if (fileExists) {
-                        SetRadioButtonOutdatedCount(true);
-                        radioButtonOutdated.Enabled = false;
-                        hasOutDatedFile = false;
-                        radioButtonRequired.Select();
-                        return;
-                    } else {
-                        radioButtonOutdated.Enabled = true;
-                        hasOutDatedFile = true;
-                        SetRadioButtonOutdatedCount();
-                    }
-                    
-                }));
-            } else if (e.ChangeType == WatcherChangeTypes.Changed) {
-                Invoke(new Action(() => {
-                    SetRadioButtonOutdatedCount();
-                }));
-            } */
         }
 
         private void ZipChecker(object sender, FileSystemEventArgs e) {
@@ -959,7 +928,7 @@ If you click No you can select a different location where you can download the O
             }
         }
 
-        private bool GetObsMode () {
+        private bool GetObsMode() {
             string downloadPath = textBoxSaveLocation.Text;
 
             bool obsMode = false;
@@ -973,6 +942,14 @@ If you click No you can select a different location where you can download the O
             return obsMode;
         }
 
+        private void checkBoxBackup_CheckedChanged(object sender, EventArgs e) {
+            if (!checkBoxBackup.Checked) {
+                var dialogResult = MessageBox.Show("Are you sure you don't want to create a backup for your OBS-Studio instance?\r\n\r\nAs per usual, StreamUP cannot be held responsible if something goes wrong!", "Are you ABSOLUTELY sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.No) {
+                    checkBoxBackup.Checked = true;
+                }
+            }
+        }
     }
 
     class Plugin {

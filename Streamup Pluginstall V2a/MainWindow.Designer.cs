@@ -52,6 +52,8 @@
             radioButtonAll = new Custom_Controls.RadioButtonFlat();
             radioButtonCustom = new Custom_Controls.RadioButtonFlat();
             radioButtonOutdated = new Custom_Controls.RadioButtonFlat();
+            checkBoxBackup = new CheckBox();
+            labelBackup = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStreamUPLogo).BeginInit();
             panelTextBoxSaveLocation.SuspendLayout();
             panelCheckedListBoxPlugins.SuspendLayout();
@@ -125,9 +127,9 @@
             buttonTest.BackColor = Color.FromArgb(66, 67, 86);
             buttonTest.FlatAppearance.BorderSize = 0;
             buttonTest.FlatStyle = FlatStyle.Flat;
-            buttonTest.Location = new Point(799, 78);
+            buttonTest.Location = new Point(425, 297);
             buttonTest.Name = "buttonTest";
-            buttonTest.Size = new Size(120, 51);
+            buttonTest.Size = new Size(83, 56);
             buttonTest.TabIndex = 12;
             buttonTest.TabStop = false;
             buttonTest.Text = "Disabled for Andilippi";
@@ -437,12 +439,36 @@
             radioButtonOutdated.UseVisualStyleBackColor = true;
             radioButtonOutdated.CheckedChanged += radioButtonOutdated_CheckedChanged;
             // 
+            // checkBoxBackup
+            // 
+            checkBoxBackup.AutoSize = true;
+            checkBoxBackup.Checked = true;
+            checkBoxBackup.CheckState = CheckState.Checked;
+            checkBoxBackup.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            checkBoxBackup.Location = new Point(679, 88);
+            checkBoxBackup.Name = "checkBoxBackup";
+            checkBoxBackup.Size = new Size(15, 14);
+            checkBoxBackup.TabIndex = 29;
+            checkBoxBackup.UseVisualStyleBackColor = true;
+            checkBoxBackup.CheckedChanged += checkBoxBackup_CheckedChanged;
+            // 
+            // labelBackup
+            // 
+            labelBackup.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelBackup.Location = new Point(700, 84);
+            labelBackup.Name = "labelBackup";
+            labelBackup.Size = new Size(219, 45);
+            labelBackup.TabIndex = 30;
+            labelBackup.Text = "Create backup when OBS Folder is selected";
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 23, 45);
             ClientSize = new Size(932, 663);
+            Controls.Add(labelBackup);
+            Controls.Add(checkBoxBackup);
             Controls.Add(labelAutomaticallyExtract);
             Controls.Add(checkBoxExtract);
             Controls.Add(buttonClearSelection);
@@ -516,5 +542,7 @@
         private Custom_Controls.RadioButtonFlat radioButtonAll;
         private Custom_Controls.RadioButtonFlat radioButtonCustom;
         private Custom_Controls.RadioButtonFlat radioButtonOutdated;
+        private CheckBox checkBoxBackup;
+        private Label labelBackup;
     }
 }
