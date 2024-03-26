@@ -525,26 +525,34 @@ namespace Streamup_Pluginstall_V2 {
                 destinationFolder = Path.Combine(destinationFolder, "obs-studio");
             }
 
-            // Copy complete obs-studio folder to destination
-            AddTextToLog("Copying files to destination folder!");
-            CopyFolder(tempOBSFolder, destinationFolder);
-            AddTextToLog("Done with copying");
 
-            // Delete the TEMP OBS-Studio Folder
-            Directory.Delete(tempOBSFolder, true);
+            bool tempOBSFolderExists = Directory.Exists(tempOBSFolder);
+            if (tempOBSFolderExists) {
+                //Copy complete obs-studio folder to destination
+                AddTextToLog("Copying files to destination folder!");
+                CopyFolder(tempOBSFolder, destinationFolder);
+                AddTextToLog("Done with copying");
+
+                // Delete the TEMP OBS-Studio Folder
+                Directory.Delete(tempOBSFolder, true);
+            } else {
+                AddTextToLog("No OBS-Studio folder found skipping copying to destination folder!");
+            }
 
             // Checking if there are files remaining and after that copying them to the AppFolder\Remaining Files
+
             if (Directory.GetFiles(tempFolder).Length > 0) {
-                AddTextToLog("Remaining files found, copying these to the AppFolder\\Remaining Files\r\nThese files need to be installed manually");
+                AddTextToLog("Other / remaining files found, copying these to the AppFolder\\Remaining Files\r\nThese files need to be installed manually");
                 CopyFolder(tempFolder, remainingFilesFolder);
             }
 
             // Deleting the temp folder!
             Directory.Delete(tempFolder, true);
 
-            if (obsMode) {
+            if (obsMode && tempOBSFolderExists) {
                 AddTextToLog("Files have been copied / written to your OBS-Studio Folder!\r\nIf there are any issues please restore a backup");
             }
+
             AddTextToLog("DONE!");
             SetFormItemsEnabledState(true, checkBoxExtractState);
             /* string finalText = @"---------------
